@@ -7,12 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E9094281E0AFD7700B2686F /* window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E9094261E0AFD7700B2686F /* window.cpp */; };
+		4E90942E1E0AFEF000B2686F /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E90942A1E0AFEF000B2686F /* background.png */; };
+		4E90942F1E0AFEF000B2686F /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E90942B1E0AFEF000B2686F /* ground.png */; };
+		4E9094301E0AFEF000B2686F /* middle_platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E90942C1E0AFEF000B2686F /* middle_platform.png */; };
+		4E9094311E0AFEF000B2686F /* sidewalls.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E90942D1E0AFEF000B2686F /* sidewalls.png */; };
 		4EF1BFEA1DFF201F005DF164 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4EF1BFE91DFF201F005DF164 /* ResourcePath.mm */; };
 		4EF1BFED1DFF201F005DF164 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EF1BFEC1DFF201F005DF164 /* main.cpp */; };
 		4EF1C0291DFF222A005DF164 /* client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EF1C0271DFF222A005DF164 /* client.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E9094261E0AFD7700B2686F /* window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = window.cpp; sourceTree = "<group>"; };
+		4E9094271E0AFD7700B2686F /* window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = window.hpp; sourceTree = "<group>"; };
+		4E90942A1E0AFEF000B2686F /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../../../Grafika/Neckbeard/background.png; sourceTree = "<group>"; };
+		4E90942B1E0AFEF000B2686F /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ground.png; path = ../../../Grafika/Neckbeard/ground.png; sourceTree = "<group>"; };
+		4E90942C1E0AFEF000B2686F /* middle_platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = middle_platform.png; path = ../../../Grafika/Neckbeard/middle_platform.png; sourceTree = "<group>"; };
+		4E90942D1E0AFEF000B2686F /* sidewalls.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sidewalls.png; path = ../../../Grafika/Neckbeard/sidewalls.png; sourceTree = "<group>"; };
 		4EF1BFE41DFF201F005DF164 /* 1v1_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1v1_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF1BFE81DFF201F005DF164 /* 1v1_client-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "1v1_client-Info.plist"; sourceTree = "<group>"; };
 		4EF1BFE91DFF201F005DF164 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -33,6 +44,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E9094291E0AFEB200B2686F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4E90942A1E0AFEF000B2686F /* background.png */,
+				4E90942B1E0AFEF000B2686F /* ground.png */,
+				4E90942C1E0AFEF000B2686F /* middle_platform.png */,
+				4E90942D1E0AFEF000B2686F /* sidewalls.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		4EF1BFDA1DFF201F005DF164 = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +79,9 @@
 				4EF1BFEC1DFF201F005DF164 /* main.cpp */,
 				4EF1C0271DFF222A005DF164 /* client.cpp */,
 				4EF1C0281DFF222A005DF164 /* client.hpp */,
+				4E9094261E0AFD7700B2686F /* window.cpp */,
+				4E9094271E0AFD7700B2686F /* window.hpp */,
+				4E9094291E0AFEB200B2686F /* Resources */,
 				4EF1BFE71DFF201F005DF164 /* Supporting Files */,
 			);
 			path = 1v1_client;
@@ -129,6 +154,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E9094311E0AFEF000B2686F /* sidewalls.png in Resources */,
+				4E90942F1E0AFEF000B2686F /* ground.png in Resources */,
+				4E90942E1E0AFEF000B2686F /* background.png in Resources */,
+				4E9094301E0AFEF000B2686F /* middle_platform.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +187,7 @@
 				4EF1BFED1DFF201F005DF164 /* main.cpp in Sources */,
 				4EF1BFEA1DFF201F005DF164 /* ResourcePath.mm in Sources */,
 				4EF1C0291DFF222A005DF164 /* client.cpp in Sources */,
+				4E9094281E0AFD7700B2686F /* window.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +327,7 @@
 				4EF1BFFB1DFF201F005DF164 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

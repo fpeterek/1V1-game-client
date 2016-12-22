@@ -53,4 +53,17 @@ Client::Client(sf::IpAddress & ip, unsigned short port, unsigned short portServe
     
     std::cout << "Connected" << std::endl;
     
+    _window.initialize();
+    mainLoop();
+    
+}
+
+void Client::mainLoop() {
+    
+    while (true) {
+        
+        _window.render();
+        
+    }
+    
 }

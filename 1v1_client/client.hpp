@@ -16,11 +16,17 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Network.hpp>
 
+#include "window.hpp"
+
 class Client {
     
     unsigned short _port, _serverPort;
     sf::IpAddress _ip;
     sf::UdpSocket _socket;
+    
+    Window _window;
+    
+    void mainLoop();
     
 public:
     
