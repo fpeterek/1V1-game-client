@@ -58,11 +58,37 @@ Client::Client(sf::IpAddress & ip, unsigned short port, unsigned short portServe
     
 }
 
+void Client::receiveData() {
+    
+    size_t received;
+    sf::IpAddress remoteAddress;
+    unsigned short remotePort;
+    
+    if (_socket.receive(_receivedData, 1024, received, remoteAddress, remotePort) != sf::Socket::Done) {
+        return;
+    }
+
+    if (remoteAddress != _ip or remotePort != _serverPort) {
+        return;
+    }
+    
+    std::string data(_receivedData);
+    parseData(data);
+    
+}
+
+void Client::parseData(std::string & data) {
+    
+    
+    
+}
+
 void Client::mainLoop() {
     
-    while (true) {
+    while (_window.open()) {
         
         _window.render();
+        _window.handleEvents();
         
     }
     

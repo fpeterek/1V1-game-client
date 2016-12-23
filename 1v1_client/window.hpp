@@ -36,6 +36,8 @@ class Window : sf::RenderWindow {
     
 public:
     
+    bool open();
+    void handleEvents();
     void initialize();
     void render();
     

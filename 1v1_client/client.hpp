@@ -24,7 +24,14 @@ class Client {
     sf::IpAddress _ip;
     sf::UdpSocket _socket;
     
+    char _receivedData[1024];
+    
     Window _window;
+    
+    void receiveData();
+    void parseData(std::string & data);
+    
+    void sendRequest();
     
     void mainLoop();
     

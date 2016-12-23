@@ -18,8 +18,6 @@ void Window::initialize() {
     
     create(vm, "Neckbeard 1v1", sf::Style::Fullscreen);
     
-    setFramerateLimit(60);
-    
     loadTexture("background.png");
     loadTexture("ground.png");
     loadTexture("middle_platform.png");
@@ -31,13 +29,50 @@ void Window::initialize() {
 
 void Window::initSprites() {
     
-    sf::Sprite temp;
+    /* Background */ {
     
-    temp.setTexture(_textures[0]);
-    temp.setScale(800 / 32 * _scale, 450 / 32 * _scale);
+        sf::Sprite background;
+        background.setTexture(_textures[0]);
+        /* Set scale so that a 32 * 32 texture streches across the entire screen */
+        background.setScale(800.f / 32.f * _scale, 450.f / 32.f * _scale);
+        _sprites.emplace_back(background);
     
-    _sprites.emplace_back(temp);
+    }
     
+    /* Ground */ {
+        
+        sf::Sprite ground;
+        ground.setScale(_scale, _scale);
+        ground.setTexture(_textures[1]);
+        ground.setPosition(0, 386 * _scale);
+        _sprites.emplace_back(ground);
+        
+    }
+    
+    /* Platform */ {
+    
+        sf::Sprite platform;
+        platform.setScale(_scale, _scale);
+        platform.setTexture(_textures[2]);
+        platform.setOrigin(384 / 2, 0);
+        platform.setPosition(400 * _scale, 200 * _scale);
+        _sprites.emplace_back(platform);
+    
+    }
+    
+    /* Sidewalls */ {
+        
+        sf::Sprite sidewall;
+        sidewall.setTexture(_textures[3]);
+        sidewall.setScale(_scale, _scale);
+        sidewall.setPosition(0, (450 - 352) * _scale);
+        _sprites.emplace_back(sidewall);
+        
+        sf::Sprite sidewall2(sidewall);
+        sidewall2.setPosition((800 - 96) * _scale, (450 - 352) * _scale);
+        _sprites.emplace_back(sidewall2);
+        
+    }
     
 }
 
@@ -69,5 +104,28 @@ void Window::render() {
     }
     
     display();
+    
+}
+
+void Window::handleEvents() {
+    
+    sf::Event event;
+    while (pollEvent(event)) {
+        
+        if (event.type == sf::Event::Closed) {
+            close();
+        }
+        
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
+            close();
+        }
+        
+    }
+
+}
+
+bool Window::open() {
+    
+    return isOpen();
     
 }
