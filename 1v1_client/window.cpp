@@ -31,11 +31,9 @@ void Window::initSprites() {
     
     /* Background */ {
     
-        sf::Sprite background;
-        background.setTexture(_textures[0]);
+        _background.setTexture(_textures[0]);
         /* Set scale so that a 32 * 32 texture streches across the entire screen */
-        background.setScale(800.f / 32.f * _scale, 450.f / 32.f * _scale);
-        _sprites.emplace_back(background);
+        _background.setScale(800.f / 32.f * _scale, 450.f / 32.f * _scale);
     
     }
     

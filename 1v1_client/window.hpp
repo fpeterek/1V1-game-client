@@ -26,6 +26,7 @@
 class Window : sf::RenderWindow {
     
     std::vector<sf::Texture> _textures;
+    sf::Sprite _background;
     std::vector<sf::Sprite> _sprites;
     
     /* Base resolution is 800 * 450, just for reference, so everything can be scaled accordingly */
