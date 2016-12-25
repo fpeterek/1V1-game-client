@@ -53,7 +53,7 @@ sf::IpAddress get_ip() {
 int main(int argc, const char * argv[]) {
     
     
-    // sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
     
     /*
      sf::Font font;
@@ -64,10 +64,23 @@ int main(int argc, const char * argv[]) {
      text.setColor(sf::Color::Black);
      */
     
+    sf::Texture _texture;
+    if (not _texture.loadFromFile(resourcePath() + "spritesheet.png")) {
+        return -1;
+    }
+    sf::Sprite _sprite;
+    _sprite.setTexture(_texture);
+    _sprite.setPosition(200, 200);
+    _sprite.setTextureRect(sf::IntRect(0, 0, 48, 32));
+    _sprite.setScale(4, 4);
+    // sf::RenderWindow window;
+    // window.create(sf::VideoMode(800, 600), "Window");
+    window.setFramerateLimit(60);
+    
     try {
         
-        sf::IpAddress ip = get_ip();
-        Client(ip, PORT_CLIENT, PORT_SERVER);
+        // sf::IpAddress ip = get_ip();
+        // Client(ip, PORT_CLIENT, PORT_SERVER);
         
     } catch (std::runtime_error & e) {
         
@@ -75,7 +88,7 @@ int main(int argc, const char * argv[]) {
         
     }
     
-    /*
+    
     
      while (window.isOpen()) {
      
@@ -93,10 +106,11 @@ int main(int argc, const char * argv[]) {
          }
          
          window.clear();
+         window.draw(_sprite);
          window.display();
      
      }
      
-     */
+    
     
 }

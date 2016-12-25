@@ -17,12 +17,16 @@
 #include <SFML/Network.hpp>
 
 #include "window.hpp"
+#include "Player.hpp"
 
 class Client {
     
     unsigned short _port, _serverPort;
     sf::IpAddress _ip;
     sf::UdpSocket _socket;
+    
+    Player _player;
+    Player _player2;
     
     char _receivedData[1024];
     

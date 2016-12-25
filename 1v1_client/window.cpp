@@ -95,13 +95,23 @@ void Window::render() {
     
     clear();
     
+    draw(_background);
+    
     for (auto & sprite : _sprites) {
-        
         draw(sprite);
-        
+    }
+    
+    for (auto & player : _players) {
+        draw(player);
     }
     
     display();
+    
+}
+
+void Window::addPlayer(Player & player) {
+    
+    _players.emplace_back(player);
     
 }
 
@@ -125,5 +135,11 @@ void Window::handleEvents() {
 bool Window::open() {
     
     return isOpen();
+    
+}
+
+float Window::getScale() {
+    
+    return _scale;
     
 }

@@ -12,12 +12,15 @@
 #include <stdio.h>
 #include <iostream>
 #include <vector>
+#include <map>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 
 #include "ResourcePath.hpp"
+
+#include "Player.hpp"
 
 /* Don't want to expose any sf::RenderWindow methods, so I'm keeping them private   */
 /* This class serves as an interface for sf::RenderWindow that simplifies           */
@@ -28,6 +31,7 @@ class Window : sf::RenderWindow {
     std::vector<sf::Texture> _textures;
     sf::Sprite _background;
     std::vector<sf::Sprite> _sprites;
+    std::vector<Player> _players;
     
     /* Base resolution is 800 * 450, just for reference, so everything can be scaled accordingly */
     float _scale;
@@ -37,10 +41,13 @@ class Window : sf::RenderWindow {
     
 public:
     
+    float getScale();
     bool open();
     void handleEvents();
     void initialize();
     void render();
+    void addPlayer(Player & player);
+    void Display();
     
 };
 

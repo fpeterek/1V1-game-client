@@ -11,6 +11,11 @@
 
 Client::Client(sf::IpAddress & ip, unsigned short port, unsigned short portServer) {
     
+    std::string spritesheet = resourcePath() + std::string("spritesheet.png");
+    
+    _player = Player(spritesheet);
+    _player2 = Player(spritesheet);
+    
     _port = port;
     _serverPort = portServer;
     _ip = ip;
@@ -54,6 +59,12 @@ Client::Client(sf::IpAddress & ip, unsigned short port, unsigned short portServe
     std::cout << "Connected" << std::endl;
     
     _window.initialize();
+    float scale = _window.getScale();
+    _player.setScale(scale, scale);
+    _player2.setScale(scale, scale);
+    _player.setPosition(300, 300);
+    _window.addPlayer(_player);
+    _window.addPlayer(_player2);
     mainLoop();
     
 }
@@ -86,6 +97,8 @@ void Client::parseData(std::string & data) {
 void Client::mainLoop() {
     
     while (_window.open()) {
+        
+        // receiveData();
         
         _window.render();
         _window.handleEvents();
