@@ -53,7 +53,7 @@ sf::IpAddress get_ip() {
 int main(int argc, const char * argv[]) {
     
     
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+    // sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
     
     /*
      sf::Font font;
