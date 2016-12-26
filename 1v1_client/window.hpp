@@ -13,6 +13,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <functional>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -31,7 +32,7 @@ class Window : sf::RenderWindow {
     std::vector<sf::Texture> _textures;
     sf::Sprite _background;
     std::vector<sf::Sprite> _sprites;
-    std::vector<Player> _players;
+    std::vector<std::reference_wrapper<Player>> _players;
     
     /* Base resolution is 800 * 450, just for reference, so everything can be scaled accordingly */
     float _scale;
@@ -41,6 +42,7 @@ class Window : sf::RenderWindow {
     
 public:
     
+    sf::Texture & getSpritesheet();
     float getScale();
     bool open();
     void handleEvents();

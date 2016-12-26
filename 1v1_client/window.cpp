@@ -22,6 +22,7 @@ void Window::initialize() {
     loadTexture("ground.png");
     loadTexture("middle_platform.png");
     loadTexture("sidewalls.png");
+    loadTexture("spritesheet.png");
     
     initSprites();
     
@@ -109,9 +110,16 @@ void Window::render() {
     
 }
 
+sf::Texture & Window::getSpritesheet() {
+    
+    return _textures[4];
+    
+}
+
 void Window::addPlayer(Player & player) {
     
-    _players.emplace_back(player);
+    std::reference_wrapper<Player> ref = player;
+    _players.emplace_back(ref);
     
 }
 

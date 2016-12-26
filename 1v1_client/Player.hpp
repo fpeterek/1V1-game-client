@@ -20,11 +20,10 @@
 class Player : public sf::Sprite {
 
     char _hp;
-    sf::Texture _spriteSheet;
     
 public:
     
-    Player(std::string & spriteSheet);
+    Player(sf::Texture & texture);
     Player();
     
     void setHp(char hp);

@@ -21,14 +21,9 @@ Player::Player() {
     
 }
 
-Player::Player(std::string & textureName) {
+Player::Player(sf::Texture & texture) {
     
-    if (not _spriteSheet.loadFromFile(textureName)) {
-        throw std::runtime_error("Unable to load file " + textureName);
-    }
-    
-    setTexture(_spriteSheet);
+    setTexture(texture);
     setTextureRect(sf::IntRect(0, 0, 48, 32));
-    
     
 }

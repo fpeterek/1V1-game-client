@@ -11,11 +11,6 @@
 
 Client::Client(sf::IpAddress & ip, unsigned short port, unsigned short portServer) {
     
-    std::string spritesheet = resourcePath() + std::string("spritesheet.png");
-    
-    _player = Player(spritesheet);
-    _player2 = Player(spritesheet);
-    
     _port = port;
     _serverPort = portServer;
     _ip = ip;
@@ -60,11 +55,14 @@ Client::Client(sf::IpAddress & ip, unsigned short port, unsigned short portServe
     
     _window.initialize();
     float scale = _window.getScale();
-    _player.setScale(scale, scale);
-    _player2.setScale(scale, scale);
-    _player.setPosition(300, 300);
+    
+    _player = Player(_window.getSpritesheet());
+    _player2 = Player(_window.getSpritesheet());
+    _player.setScale(scale * 3, scale * 3);
+    _player2.setScale(scale * 2.5, scale * 2.5);
+    
     _window.addPlayer(_player);
-    _window.addPlayer(_player2);
+    // _window.addPlayer(_player2);
     mainLoop();
     
 }
