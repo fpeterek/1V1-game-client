@@ -52,35 +52,6 @@ sf::IpAddress get_ip() {
 
 int main(int argc, const char * argv[]) {
     
-    
-    // sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
-    
-    /*
-     sf::Font font;
-     if (!font.loadFromFile(resourcePath() + "sansation.ttf")) {
-     return EXIT_FAILURE;
-     }
-     sf::Text text("Hello SFML", font, 50);
-     text.setColor(sf::Color::Black);
-     */
-    
-    /*
-    
-    sf::Texture _texture;
-    if (not _texture.loadFromFile(resourcePath() + "spritesheet.png")) {
-        return -1;
-    }
-    sf::Sprite _sprite;
-    _sprite.setTexture(_texture);
-    _sprite.setPosition(200, 200);
-    _sprite.setTextureRect(sf::IntRect(0, 0, 48, 32));
-    _sprite.setScale(4, 4);
-    // sf::RenderWindow window;
-    // window.create(sf::VideoMode(800, 600), "Window");
-    window.setFramerateLimit(60);
-    
-     */
-     
     try {
         
         sf::IpAddress ip = get_ip();
@@ -91,30 +62,5 @@ int main(int argc, const char * argv[]) {
         std::cout << e.what() << std::endl;
         
     }
-    
-    /*
-    
-     while (window.isOpen()) {
-     
-         sf::Event event;
-         while (window.pollEvent(event)) {
-         
-             if (event.type == sf::Event::Closed) {
-                 window.close();
-             }
-             
-             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
-                 window.close();
-             }
-         
-         }
-         
-         window.clear();
-         window.draw(_sprite);
-         window.display();
-     
-     }
-     
-    */
     
 }
