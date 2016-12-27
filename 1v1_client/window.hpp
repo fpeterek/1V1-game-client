@@ -45,7 +45,7 @@ public:
     sf::Texture & getSpritesheet();
     float getScale();
     bool open();
-    void handleEvents();
+    sf::Event getEvent();
     void initialize();
     void render();
     void addPlayer(Player & player);

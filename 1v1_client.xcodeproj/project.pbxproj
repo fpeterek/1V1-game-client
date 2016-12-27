@@ -17,6 +17,7 @@
 		4EF1BFEA1DFF201F005DF164 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4EF1BFE91DFF201F005DF164 /* ResourcePath.mm */; };
 		4EF1BFED1DFF201F005DF164 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EF1BFEC1DFF201F005DF164 /* main.cpp */; };
 		4EF1C0291DFF222A005DF164 /* client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EF1C0271DFF222A005DF164 /* client.cpp */; };
+		4EF3EEEC1E12CAD600DAE476 /* request.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3EEEA1E12CAD600DAE476 /* request.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		4EF1BFEC1DFF201F005DF164 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4EF1C0271DFF222A005DF164 /* client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = client.cpp; sourceTree = "<group>"; };
 		4EF1C0281DFF222A005DF164 /* client.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = client.hpp; sourceTree = "<group>"; };
+		4EF3EEEA1E12CAD600DAE476 /* request.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = request.cpp; sourceTree = "<group>"; };
+		4EF3EEEB1E12CAD600DAE476 /* request.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = request.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,8 @@
 				4EF1C0281DFF222A005DF164 /* client.hpp */,
 				4E801A8B1E0E942200561A44 /* Player.cpp */,
 				4E801A8C1E0E942200561A44 /* Player.hpp */,
+				4EF3EEEA1E12CAD600DAE476 /* request.cpp */,
+				4EF3EEEB1E12CAD600DAE476 /* request.hpp */,
 				4E9094261E0AFD7700B2686F /* window.cpp */,
 				4E9094271E0AFD7700B2686F /* window.hpp */,
 				4E9094291E0AFEB200B2686F /* Resources */,
@@ -194,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EF1BFED1DFF201F005DF164 /* main.cpp in Sources */,
+				4EF3EEEC1E12CAD600DAE476 /* request.cpp in Sources */,
 				4EF1BFEA1DFF201F005DF164 /* ResourcePath.mm in Sources */,
 				4EF1C0291DFF222A005DF164 /* client.cpp in Sources */,
 				4E9094281E0AFD7700B2686F /* window.cpp in Sources */,

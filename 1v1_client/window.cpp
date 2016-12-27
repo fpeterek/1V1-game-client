@@ -123,7 +123,7 @@ void Window::addPlayer(Player & player) {
     
 }
 
-void Window::handleEvents() {
+sf::Event Window::getEvent() {
     
     sf::Event event;
     while (pollEvent(event)) {
@@ -137,6 +137,8 @@ void Window::handleEvents() {
         }
         
     }
+    
+    return event;
 
 }
 
