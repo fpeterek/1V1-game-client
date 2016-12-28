@@ -18,6 +18,7 @@
 
 #include "window.hpp"
 #include "Player.hpp"
+#include "request.hpp"
 
 class Client {
     

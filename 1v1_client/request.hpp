@@ -17,21 +17,21 @@
 
 #include "Player.hpp"
 
-enum class direction {
-    left,
-    right
-};
-
-struct entity {
-    sf::Vector2i pos;
-};
+/* Client's request that is sent to the server */
 
 class Request {
     
-    std::string _raw_request;
+    std::string _rawRequest;
     
+public:
+    
+    Request();
+    Request(sf::Event & event);
+    void createRequest(sf::Event & event);
     
 };
+
+
 
 
 #endif /* request_hpp */

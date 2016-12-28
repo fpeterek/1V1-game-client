@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E7A20FA1E130FB100F3C0D8 /* response.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E7A20F81E130FB100F3C0D8 /* response.cpp */; };
 		4E801A8D1E0E942200561A44 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E801A8B1E0E942200561A44 /* Player.cpp */; };
 		4E801A8F1E0EB09F00561A44 /* spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E801A8E1E0EB09F00561A44 /* spritesheet.png */; };
 		4E9094281E0AFD7700B2686F /* window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E9094261E0AFD7700B2686F /* window.cpp */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E7A20F81E130FB100F3C0D8 /* response.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = response.cpp; sourceTree = "<group>"; };
+		4E7A20F91E130FB100F3C0D8 /* response.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = response.hpp; sourceTree = "<group>"; };
 		4E801A8B1E0E942200561A44 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		4E801A8C1E0E942200561A44 /* Player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
 		4E801A8E1E0EB09F00561A44 /* spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spritesheet.png; path = ../../../Grafika/Neckbeard/spritesheet.png; sourceTree = "<group>"; };
@@ -92,6 +95,8 @@
 				4E801A8C1E0E942200561A44 /* Player.hpp */,
 				4EF3EEEA1E12CAD600DAE476 /* request.cpp */,
 				4EF3EEEB1E12CAD600DAE476 /* request.hpp */,
+				4E7A20F81E130FB100F3C0D8 /* response.cpp */,
+				4E7A20F91E130FB100F3C0D8 /* response.hpp */,
 				4E9094261E0AFD7700B2686F /* window.cpp */,
 				4E9094271E0AFD7700B2686F /* window.hpp */,
 				4E9094291E0AFEB200B2686F /* Resources */,
@@ -202,6 +207,7 @@
 				4EF3EEEC1E12CAD600DAE476 /* request.cpp in Sources */,
 				4EF1BFEA1DFF201F005DF164 /* ResourcePath.mm in Sources */,
 				4EF1C0291DFF222A005DF164 /* client.cpp in Sources */,
+				4E7A20FA1E130FB100F3C0D8 /* response.cpp in Sources */,
 				4E9094281E0AFD7700B2686F /* window.cpp in Sources */,
 				4E801A8D1E0E942200561A44 /* Player.cpp in Sources */,
 			);
