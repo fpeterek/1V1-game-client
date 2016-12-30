@@ -16,16 +16,19 @@
 
 #include "ResourcePath.hpp"
 
+#include "response.hpp"
+
 
 class Player : public sf::Sprite {
 
     char _hp;
     
 public:
-    
+
     Player(sf::Texture & texture);
     Player();
     
+    void update(const entity & newInfo);
     void setHp(char hp);
     char getHp();
 

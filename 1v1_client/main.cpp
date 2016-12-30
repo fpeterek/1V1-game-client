@@ -21,8 +21,8 @@
 
 #include "Client.hpp"
 
-#define PORT_CLIENT 60001
-#define PORT_SERVER 60000
+#define PORT_CLIENT 60002
+#define PORT_SERVER 60001
 
 sf::IpAddress get_ip() {
     

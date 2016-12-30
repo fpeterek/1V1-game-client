@@ -88,7 +88,9 @@ void Client::receiveData() {
 
 void Client::parseData(std::string & data) {
     
-    
+    _serverResponse.setResponse(data);
+    _player.update(  _serverResponse.getEntity("p1") );
+    _player2.update( _serverResponse.getEntity("p2") );
     
 }
 
@@ -102,7 +104,7 @@ void Client::mainLoop() {
     
     while (_window.open()) {
         
-        // receiveData();
+        receiveData();
         
         _window.render();
         _window.getEvent();

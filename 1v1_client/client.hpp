@@ -19,12 +19,15 @@
 #include "window.hpp"
 #include "Player.hpp"
 #include "request.hpp"
+#include "response.hpp"
 
 class Client {
     
     unsigned short _port, _serverPort;
     sf::IpAddress _ip;
     sf::UdpSocket _socket;
+    
+    Response _serverResponse;
     
     Player _player;
     Player _player2;
@@ -35,6 +38,7 @@ class Client {
     
     void receiveData();
     void parseData(std::string & data);
+    void update();
     
     void sendRequest();
     
