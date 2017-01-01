@@ -94,9 +94,11 @@ void Client::parseData(std::string & data) {
     
 }
 
-void Client::sendRequest() {
+void Client::sendRequest(const sf::Event & event) {
     
-    
+    _request.createRequest(event);
+    const char * request = _request.getRequest();
+    _socket.send(request, strlen(request), _ip, _serverPort);
     
 }
 
@@ -107,7 +109,8 @@ void Client::mainLoop() {
         receiveData();
         
         _window.render();
-        _window.getEvent();
+        
+        sendRequest(_window.getEvent());
         
     }
     

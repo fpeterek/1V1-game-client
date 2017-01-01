@@ -22,12 +22,14 @@
 class Request {
     
     std::string _rawRequest;
+    static const std::map<sf::Keyboard::Key, std::string> controls;
     
 public:
     
     Request();
-    Request(sf::Event & event);
-    void createRequest(sf::Event & event);
+    Request(const sf::Event & event);
+    void createRequest(const sf::Event & event);
+    const char * getRequest();
     
 };
 

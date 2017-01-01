@@ -28,6 +28,7 @@ class Client {
     sf::UdpSocket _socket;
     
     Response _serverResponse;
+    Request _request;
     
     Player _player;
     Player _player2;
@@ -40,7 +41,7 @@ class Client {
     void parseData(std::string & data);
     void update();
     
-    void sendRequest();
+    void sendRequest(const sf::Event & event);
     
     void mainLoop();
     

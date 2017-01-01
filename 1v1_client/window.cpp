@@ -131,14 +131,16 @@ sf::Event Window::getEvent() {
         if (event.type == sf::Event::Closed) {
             close();
         }
-        
-        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
+        else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
             close();
+        }
+        else if (event.type == sf::Event::KeyPressed) {
+            return event;
         }
         
     }
     
-    return event;
+    return sf::Event();
 
 }
 
