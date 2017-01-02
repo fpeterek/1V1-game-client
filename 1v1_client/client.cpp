@@ -114,8 +114,6 @@ void Client::sendRequest(const sf::Event & event) {
 
 void Client::mainLoop() {
     
-    size_t counter = 0;
-    
     while (_window.open()) {
         
         _window.render();
@@ -123,8 +121,6 @@ void Client::mainLoop() {
         sendRequest(_window.getEvent());
         
         receiveData();
-        
-        std::cout << "Iteration " << ++counter << std::endl;
         
     }
     
