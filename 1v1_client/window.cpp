@@ -103,7 +103,7 @@ void Window::render() {
     }
     
     for (auto & player : _players) {
-        draw(player);
+        draw(player.get());
     }
     
     display();

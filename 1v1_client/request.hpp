@@ -29,7 +29,7 @@ public:
     Request();
     Request(const sf::Event & event);
     void createRequest(const sf::Event & event);
-    const char * getRequest();
+    std::string & getRequest();
     
 };
 

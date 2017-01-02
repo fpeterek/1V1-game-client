@@ -63,6 +63,13 @@ Client::Client(sf::IpAddress & ip, unsigned short port, unsigned short portServe
     
     _window.addPlayer(_player);
     _window.addPlayer(_player2);
+    
+    /* Don't want a blocking socket anymore so we don't wait forever in case no packets are recieved */
+    _socket.setBlocking(false);
+    
+    /* Reset clock before doing anything else */
+    _clock.restart();
+    
     mainLoop();
     
 }
@@ -84,6 +91,9 @@ void Client::receiveData() {
     std::string data(_receivedData);
     parseData(data);
     
+    int timeToSleep = 15 - _clock.restart().asMilliseconds();
+    std::this_thread::sleep_for( std::chrono::milliseconds(timeToSleep) );
+    
 }
 
 void Client::parseData(std::string & data) {
@@ -97,20 +107,24 @@ void Client::parseData(std::string & data) {
 void Client::sendRequest(const sf::Event & event) {
     
     _request.createRequest(event);
-    const char * request = _request.getRequest();
-    _socket.send(request, strlen(request), _ip, _serverPort);
+    std::string & request = _request.getRequest();
+    _socket.send(request.c_str(), request.length(), _ip, _serverPort);
     
 }
 
 void Client::mainLoop() {
     
+    size_t counter = 0;
+    
     while (_window.open()) {
-        
-        receiveData();
         
         _window.render();
         
         sendRequest(_window.getEvent());
+        
+        receiveData();
+        
+        std::cout << "Iteration " << ++counter << std::endl;
         
     }
     

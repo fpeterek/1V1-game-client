@@ -53,7 +53,6 @@ std::vector<std::string> splitString(const std::string & string, std::string del
 
 entity::entity(std::string & serverData) {
     
-    serverData = serverData.substr(1, serverData.size());
     serverData.erase(0, 1);
     serverData.pop_back();
     

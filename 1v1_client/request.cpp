@@ -9,12 +9,12 @@
 #include "request.hpp"
 
 const std::map<sf::Keyboard::Key, std::string> Request::controls = {
-    {sf::Keyboard::Key::Up,     "j"}, // jump
-    {sf::Keyboard::Key::Left,   "l"}, // go left
-    {sf::Keyboard::Key::Right,  "r"}, // go right
-    {sf::Keyboard::Key::Space,  "a"}, // attack
-    {sf::Keyboard::Key::R,      "d"}, // throw a dorito
-    {sf::Keyboard::Key::E,      "t"}  // teleport
+    { sf::Keyboard::Key::Up    , "j" }, // jump
+    { sf::Keyboard::Key::Left  , "l" }, // go left
+    { sf::Keyboard::Key::Right , "r" }, // go right
+    { sf::Keyboard::Key::Space , "a" }, // attack
+    { sf::Keyboard::Key::R     , "d" }, // throw a dorito
+    { sf::Keyboard::Key::E     , "t" }  // teleport
 };
 
 Request::Request() {
@@ -35,6 +35,6 @@ void Request::createRequest(const sf::Event & event) {
     
 }
 
-const char * Request::getRequest() {
-    return _rawRequest.c_str();
+std::string & Request::getRequest() {
+    return _rawRequest;
 }

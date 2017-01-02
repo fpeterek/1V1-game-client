@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <thread>
+#include <chrono>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -27,7 +29,10 @@ class Client {
     sf::IpAddress _ip;
     sf::UdpSocket _socket;
     
-    /* making this an attribute so the program doesn't have to reconstruct and allocate memory every time the client accepts a server response */
+    sf::Clock _clock;
+    
+    /* Making this an attribute so the program doesn't have to reconstruct and allocate  */
+    /* memory every time the client accepts a server response                            */
     Response _serverResponse;
     Request _request;
     
