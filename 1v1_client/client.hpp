@@ -49,6 +49,8 @@ class Client {
     
     void sendRequest(const sf::Event & event);
     
+    void sleep(const unsigned int milliseconds);
+    
     void mainLoop();
     
 public:

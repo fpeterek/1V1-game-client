@@ -74,6 +74,13 @@ Client::Client(sf::IpAddress & ip, unsigned short port, unsigned short portServe
     
 }
 
+void Client::sleep(const unsigned int milliseconds) {
+    
+    int timeToSleep = milliseconds - _clock.restart().asMilliseconds();
+    std::this_thread::sleep_for( std::chrono::milliseconds(timeToSleep) );
+    
+}
+
 void Client::receiveData() {
     
     size_t received;
@@ -81,18 +88,19 @@ void Client::receiveData() {
     unsigned short remotePort;
     
     if (_socket.receive(_receivedData, 1024, received, remoteAddress, remotePort) != sf::Socket::Done) {
-        return;
+        /* Data not recieved, sleep and try again */
+        return sleep(15);
     }
 
     if (remoteAddress != _ip or remotePort != _serverPort) {
-        return;
+        /* Received data from wrong address/port, sleep and try again */
+        return sleep(15);
     }
     
     std::string data(_receivedData);
     parseData(data);
-    
-    int timeToSleep = 15 - _clock.restart().asMilliseconds();
-    std::this_thread::sleep_for( std::chrono::milliseconds(timeToSleep) );
+    /* Received and parsed data, sleep and repeat */
+    sleep(15);
     
 }
 
