@@ -59,7 +59,9 @@ Client::Client(sf::IpAddress & ip, unsigned short port, unsigned short portServe
     _player = Player(_window.getSpritesheet());
     _player2 = Player(_window.getSpritesheet());
     _player.setScale(scale * 3, scale * 3);
+    _player.changeScale(scale);
     _player2.setScale(scale * 3, scale * 3);
+    _player2.changeScale(scale);
     
     _window.addPlayer(_player);
     _window.addPlayer(_player2);

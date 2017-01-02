@@ -89,7 +89,7 @@ entity::entity(std::string & serverData) {
     
     try {
         hp = std::stoi(values[3]);
-    } catch (std::runtime_error & e) {
+    } catch (std::exception & e) {
         isValid = false;
         return;
     }
