@@ -27,6 +27,8 @@ Player::Player(sf::Texture & texture) {
     
     setTexture(texture);
     setTextureRect(sf::IntRect(0, 0, 48, 32));
+    // 48 / 2 is middle, -5 because the neckbeard sprite is 11 pixels wide
+    setOrigin(19, 0);
     
 }
 

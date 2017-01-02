@@ -91,18 +91,18 @@ void Client::receiveData() {
     
     if (_socket.receive(_receivedData, 1024, received, remoteAddress, remotePort) != sf::Socket::Done) {
         /* Data not recieved, sleep and try again */
-        return sleep(15);
+        return sleep(4);
     }
 
     if (remoteAddress != _ip or remotePort != _serverPort) {
         /* Received data from wrong address/port, sleep and try again */
-        return sleep(15);
+        return sleep(4);
     }
     
     std::string data(_receivedData);
     parseData(data);
     /* Received and parsed data, sleep and repeat */
-    sleep(15);
+    sleep(4);
     
 }
 
@@ -118,6 +118,7 @@ void Client::sendRequest(const sf::Event & event) {
     
     _request.createRequest(event);
     std::string & request = _request.getRequest();
+    if (request == "{}") { return; }
     _socket.send(request.c_str(), request.length(), _ip, _serverPort);
     
 }
