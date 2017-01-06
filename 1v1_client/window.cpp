@@ -8,6 +8,19 @@
 
 #include "window.hpp"
 
+void Window::initControls() {
+    
+    _controls = std::map<sf::Keyboard::Key, std::string>({
+        { sf::Keyboard::Key::Up    , "j" }, // Jump
+        { sf::Keyboard::Key::Left  , "l" }, // Go left
+        { sf::Keyboard::Key::Right , "r" }, // Go right
+        { sf::Keyboard::Key::Space , "a" }, // Attack
+        { sf::Keyboard::Key::R     , "d" }, // Throw a dorito
+        { sf::Keyboard::Key::E     , "t" }  // Teleport behind. Nothing personnel, though.
+    });
+    
+}
+
 void Window::initialize() {
     
     sf::VideoMode vm = sf::VideoMode::getFullscreenModes()[0];
@@ -25,6 +38,7 @@ void Window::initialize() {
     loadTexture("spritesheet.png");
     
     initSprites();
+    initControls();
     
 }
 
@@ -43,7 +57,7 @@ void Window::initSprites() {
         sf::Sprite ground;
         ground.setScale(_scale, _scale);
         ground.setTexture(_textures[1]);
-        ground.setPosition(0, 386 * _scale);
+        ground.setPosition(0, (450 - 64) * _scale);
         _sprites.emplace_back(ground);
         
     }
@@ -54,7 +68,7 @@ void Window::initSprites() {
         platform.setScale(_scale, _scale);
         platform.setTexture(_textures[2]);
         platform.setOrigin(384 / 2, 0);
-        platform.setPosition(400 * _scale, 200 * _scale);
+        platform.setPosition(400 * _scale, 250 * _scale);
         _sprites.emplace_back(platform);
     
     }
@@ -123,8 +137,9 @@ void Window::addPlayer(Player & player) {
     
 }
 
-sf::Event Window::getEvent() {
+std::string Window::getEvents() {
     
+    std::string events;
     sf::Event event;
     while (pollEvent(event)) {
         
@@ -134,13 +149,24 @@ sf::Event Window::getEvent() {
         else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
             close();
         }
-        else if (event.type == sf::Event::KeyPressed) {
-            return event;
+     
+        try {
+            events += _controls.at(event.key.code);
+        } catch (std::out_of_range & e) {
+            /* Do nothing */
+            continue;
         }
+        /* Thank Bjarne for tuples */
+        /*for (auto & i : _controls) {
+            if (event.key.code == i.first) {
+                events += i.second;
+                break;
+            }
+        }*/
         
     }
     
-    return sf::Event();
+    return events;
 
 }
 

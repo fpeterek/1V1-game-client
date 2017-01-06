@@ -14,6 +14,7 @@
 #include <vector>
 #include <map>
 #include <functional>
+#include <chrono>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -29,6 +30,8 @@
 
 class Window : sf::RenderWindow {
     
+    std::map<sf::Keyboard::Key, std::string> _controls;
+    
     std::vector<sf::Texture> _textures;
     sf::Sprite _background;
     std::vector<sf::Sprite> _sprites;
@@ -39,13 +42,14 @@ class Window : sf::RenderWindow {
     
     void loadTexture(const char * textureName);
     void initSprites();
+    void initControls();
     
 public:
     
     sf::Texture & getSpritesheet();
     float getScale();
     bool open();
-    sf::Event getEvent();
+    std::string getEvents();
     void initialize();
     void render();
     void addPlayer(Player & player);

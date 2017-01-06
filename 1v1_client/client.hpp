@@ -47,7 +47,7 @@ class Client {
     void parseData(std::string & data);
     void update();
     
-    void sendRequest(const sf::Event & event);
+    void sendRequest(const std::string & events);
     
     void sleep(const unsigned int milliseconds);
     

@@ -24,6 +24,9 @@
 #define PORT_CLIENT 60002
 #define PORT_SERVER 60001
 
+/* Debugging macro so I don't have to retype 127.0.0.1 each time I run the client */
+#define AUTOCONNECT_TO_LOCALHOST
+
 sf::IpAddress get_ip() {
     
     std::string str;
@@ -54,7 +57,11 @@ int main(int argc, const char * argv[]) {
     
     try {
         
+#ifdef AUTOCONNECT_TO_LOCALHOST
+        sf::IpAddress ip = "127.0.0.1";
+#else
         sf::IpAddress ip = get_ip();
+#endif
         Client(ip, PORT_CLIENT, PORT_SERVER);
         
     } catch (std::runtime_error & e) {

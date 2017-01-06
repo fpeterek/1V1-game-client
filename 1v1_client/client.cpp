@@ -90,19 +90,18 @@ void Client::receiveData() {
     unsigned short remotePort;
     
     if (_socket.receive(_receivedData, 1024, received, remoteAddress, remotePort) != sf::Socket::Done) {
-        /* Data not recieved, sleep and try again */
-        return sleep(4);
+        /* Data not recieved, try again */
+        return;
     }
 
     if (remoteAddress != _ip or remotePort != _serverPort) {
-        /* Received data from wrong address/port, sleep and try again */
-        return sleep(4);
+        /* Received data from wrong address/port, try again */
+        return;
     }
     
     std::string data(_receivedData);
     parseData(data);
-    /* Received and parsed data, sleep and repeat */
-    sleep(4);
+    /* Received and parsed data, repeat */
     
 }
 
@@ -114,9 +113,9 @@ void Client::parseData(std::string & data) {
     
 }
 
-void Client::sendRequest(const sf::Event & event) {
+void Client::sendRequest(const std::string & events) {
     
-    _request.createRequest(event);
+    _request.createRequest(events);
     std::string & request = _request.getRequest();
     if (request == "{}") { return; }
     _socket.send(request.c_str(), request.length(), _ip, _serverPort);
@@ -129,9 +128,10 @@ void Client::mainLoop() {
         
         _window.render();
         
-        sendRequest(_window.getEvent());
+        sendRequest(_window.getEvents());
         
         receiveData();
+        sleep(15);
         
     }
     
