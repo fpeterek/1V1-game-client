@@ -91,7 +91,6 @@ entity::entity(std::string & serverData) {
         hp = std::stoi(values[3]);
     } catch (std::exception & e) {
         isValid = false;
-        return;
     }
     
 }

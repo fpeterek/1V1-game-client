@@ -118,7 +118,8 @@ void Client::sendRequest(const std::string & events) {
     _request.createRequest(events);
     std::string & request = _request.getRequest();
     if (request == "{}") { return; }
-    _socket.send(request.c_str(), request.length(), _ip, _serverPort);
+    
+    _socket.send(request.c_str(), request.length() + 1 /* Null terminator */, _ip, _serverPort);
     
 }
 

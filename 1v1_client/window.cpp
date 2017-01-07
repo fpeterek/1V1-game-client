@@ -10,7 +10,12 @@
 
 void Window::initControls() {
     
-    _controls = std::map<sf::Keyboard::Key, std::string>({
+    /* I want the map to be const, just to be sure, const_cast allows me to initialize it, */
+    /* modify it, while keeping it const                                                   */
+    
+    const std::map<sf::Keyboard::Key, std::string> & controlsRef = _controls;
+    
+    const_cast<std::map<sf::Keyboard::Key, std::string>&>(controlsRef) = std::map<sf::Keyboard::Key, std::string>({
         { sf::Keyboard::Key::Up    , "j" }, // Jump
         { sf::Keyboard::Key::Left  , "l" }, // Go left
         { sf::Keyboard::Key::Right , "r" }, // Go right
@@ -150,20 +155,20 @@ std::string Window::getEvents() {
             close();
         }
      
+        /*
         try {
-            events += _controls.at(event.key.code);
+            events.insert( _controls.at(event.key.code) );
         } catch (std::out_of_range & e) {
-            /* Do nothing */
+            // Do nothing /
             continue;
-        }
-        /* Thank Bjarne for tuples */
-        /*for (auto & i : _controls) {
-            if (event.key.code == i.first) {
-                events += i.second;
-                break;
-            }
         }*/
         
+    }
+    
+    for (auto & i : _controls) {
+        if (sf::Keyboard::isKeyPressed(i.first)) {
+            events += i.second;
+        }
     }
     
     return events;

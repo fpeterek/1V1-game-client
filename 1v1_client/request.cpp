@@ -19,18 +19,6 @@ Request::Request(const std::string & events) {
 void Request::createRequest(const std::string & events) {
     
     _rawRequest = "{" + events + "}";
-    /*
-    for (auto & event : events) {
-    
-        try {
-            _rawRequest += Request::controls.at(event.key.code);
-        } catch (std::out_of_range & e) {
-            // Do nothing
-        }
-        
-    }*/
-    
-    // _rawRequest += "}";
     
 }
 

@@ -30,7 +30,7 @@
 
 class Window : sf::RenderWindow {
     
-    std::map<sf::Keyboard::Key, std::string> _controls;
+    const std::map<sf::Keyboard::Key, std::string> _controls;
     
     std::vector<sf::Texture> _textures;
     sf::Sprite _background;
