@@ -13,6 +13,10 @@ void Player::setHp(char hp) {
     _hp = hp;
 }
 
+void Player::setSprite(unsigned char sprite) {
+    _sprite = sprite;
+}
+
 void Player::changeScale(float newScale) {
     _scale = newScale;
 }
@@ -37,10 +41,27 @@ void Player::update(const entity & newInfo) {
     if (not newInfo.isValid) { return; }
     
     setPosition(newInfo.pos.x * _scale, newInfo.pos.y * _scale);
-    if (newInfo.dir == direction::left) {
-        setTextureRect(sf::IntRect(48, 0, -48, 32));
-    } else {
-        setTextureRect(sf::IntRect(0, 0, 48, 32));
-    }
     setHp(newInfo.hp);
+    setSprite(newInfo.sprite);
+    
+    _matchesWon = newInfo.matchesWon;
+    
+    if (newInfo.dir == direction::left) {
+        
+        setTextureRect(sf::IntRect( (_sprite + 1) * 48, 0, -48, 32 ));
+    
+    } else {
+        
+        setTextureRect(sf::IntRect( _sprite * 48, 0, 48, 32 ));
+
+    }
+
 }
+
+unsigned short Player::getMatchesWon() {
+    
+    return _matchesWon;
+    
+}
+
+

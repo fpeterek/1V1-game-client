@@ -10,7 +10,7 @@
 
 void Window::initControls() {
     
-    /* I want the map to be const, just to be sure, const_cast allows me to initialize it, */
+    /* I want the map to be const, just to be sure, const_cast allows me to initialize and */
     /* modify it, while keeping it const                                                   */
     
     const std::map<sf::Keyboard::Key, std::string> & controlsRef = _controls;
@@ -26,6 +26,28 @@ void Window::initControls() {
     
 }
 
+void Window::initText() {
+    
+    auto init = [&] (sf::Text & text) -> void {
+        
+        text.setFont(_font);
+        // Background colors are 20, BD, FC
+        text.setColor(sf::Color(~(char)0x20, ~(char)0xBD, ~(char)0xFC));
+        text.setCharacterSize(18 * _scale);
+        text.setString("0");
+        
+    };
+    
+    init(std::get<0>(_text));
+    init(std::get<1>(_text));
+    
+    std::get<0>(_text).setPosition(5 * _scale, 5 * _scale);
+    
+    std::get<1>(_text).setOrigin(std::get<1>(_text).getLocalBounds().width, 0);
+    std::get<1>(_text).setPosition( (800 - 5) * _scale, 5 * _scale);
+    
+}
+
 void Window::initialize() {
     
     sf::VideoMode vm = sf::VideoMode::getFullscreenModes()[0];
@@ -35,6 +57,14 @@ void Window::initialize() {
     _scale = vm.width / 800.f;
     
     create(vm, "Neckbeard 1v1", sf::Style::Fullscreen);
+    
+    _text = std::make_tuple(sf::Text(), sf::Text());
+    
+    if (not _font.loadFromFile(resourcePath() + "Inconsolata.ttf")) {
+        throw std::runtime_error("Error loading font Inconsolata.ttf. ");
+    }
+    
+    initText();
     
     loadTexture("background.png");
     loadTexture("ground.png");
@@ -111,6 +141,16 @@ void Window::loadTexture(const char * textureName) {
     
 }
 
+void Window::updateText() {
+    
+    std::get<0>(_text).setString( std::to_string( _players[0].get().getMatchesWon() ) );
+    std::get<1>(_text).setString( std::to_string( _players[1].get().getMatchesWon() ) );
+    
+    std::get<1>(_text).setOrigin(std::get<1>(_text).getLocalBounds().width, 0);
+    std::get<1>(_text).setPosition( (800 - 5) * _scale, 5 * _scale);
+    
+}
+
 void Window::render() {
     
     clear();
@@ -124,6 +164,11 @@ void Window::render() {
     for (auto & player : _players) {
         draw(player.get());
     }
+    
+    updateText();
+    draw(std::get<0>(_text));
+    draw(std::get<1>(_text));
+    
     
     display();
     
@@ -154,14 +199,6 @@ std::string Window::getEvents() {
         else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
             close();
         }
-     
-        /*
-        try {
-            events.insert( _controls.at(event.key.code) );
-        } catch (std::out_of_range & e) {
-            // Do nothing /
-            continue;
-        }*/
         
     }
     

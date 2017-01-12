@@ -15,6 +15,7 @@
 #include <map>
 #include <functional>
 #include <chrono>
+#include <tuple>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -37,12 +38,18 @@ class Window : sf::RenderWindow {
     std::vector<sf::Sprite> _sprites;
     std::vector<std::reference_wrapper<Player>> _players;
     
+    sf::Font _font;
+    std::tuple<sf::Text, sf::Text> _text;
+    
     /* Base resolution is 800 * 450, just for reference, so everything can be scaled accordingly */
     float _scale;
+    
+    void updateText();
     
     void loadTexture(const char * textureName);
     void initSprites();
     void initControls();
+    void initText();
     
 public:
     

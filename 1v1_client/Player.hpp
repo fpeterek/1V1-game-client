@@ -22,6 +22,8 @@
 class Player : public sf::Sprite {
 
     char _hp;
+    unsigned char _sprite;
+    unsigned short _matchesWon;
     
     /* This is a different scale than the one in sf::Sprite, this is sf::RenderWindow's scale and it's */
     /* used to determine the sprites position, rather than size                                        */
@@ -32,9 +34,11 @@ public:
     Player(sf::Texture & texture);
     Player();
     
+    void setSprite(unsigned char sprite);
     void changeScale(float newScale);
     void update(const entity & newInfo);
     void setHp(char hp);
+    unsigned short getMatchesWon();
     char getHp();
 
 };

@@ -18,7 +18,7 @@
 
 std::array<std::string, 4> splitResponse(const std::string & response);
 
-std::vector<std::string> splitString(const std::string & string, std::string delimiter);
+std::vector<std::string> splitString(const std::string & string, const std::string delimiter);
 
 enum class direction {
     left,
@@ -30,7 +30,10 @@ struct entity {
     sf::Vector2i pos;
     direction dir;
     char hp;
+    unsigned char sprite;
     bool isValid;
+    
+    unsigned short matchesWon = 0;
     
     entity(std::string & serverData);
     

@@ -17,7 +17,7 @@
 
 #include "Player.hpp"
 
-/* Client's request that is sent to the server */
+/* Client's request, that is sent to the server */
 
 class Request {
     

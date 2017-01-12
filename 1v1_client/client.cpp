@@ -58,6 +58,7 @@ Client::Client(sf::IpAddress & ip, unsigned short port, unsigned short portServe
     
     _player = Player(_window.getSpritesheet());
     _player2 = Player(_window.getSpritesheet());
+    
     _player.setScale(scale * 3, scale * 3);
     _player.changeScale(scale);
     _player2.setScale(scale * 3, scale * 3);
@@ -78,9 +79,11 @@ Client::Client(sf::IpAddress & ip, unsigned short port, unsigned short portServe
 
 void Client::sleep(const unsigned int milliseconds) {
     
-    int timeToSleep = milliseconds - _clock.restart().asMilliseconds();
+    static int timeSlept = 0;
+    int timeToSleep = milliseconds - _clock.restart().asMilliseconds() + (timeSlept < 0 ? timeSlept : 0);
     std::this_thread::sleep_for( std::chrono::milliseconds(timeToSleep) );
-    
+    timeSlept = timeToSleep;
+    // std::cout << "Time slept: " << timeSlept << std::endl;
 }
 
 void Client::receiveData() {

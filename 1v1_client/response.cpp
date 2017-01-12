@@ -30,7 +30,7 @@ std::array<std::string, 4> splitResponse(const std::string & response) {
     
 }
 
-std::vector<std::string> splitString(const std::string & string, std::string delimiter) {
+std::vector<std::string> splitString(const std::string & string, const std::string delimiter) {
     
     std::vector<std::string> tokens;
     std::string token;
@@ -65,7 +65,7 @@ entity::entity(std::string & serverData) {
     
     std::vector<std::string> values = splitString(serverData, ",");
     
-    if (values.size() != 4) {
+    if (values.size() != 6) {
         isValid = false;
         return;
     }
@@ -73,7 +73,7 @@ entity::entity(std::string & serverData) {
     try {
         pos.x = std::stoi(values[0]);
         pos.y = std::stoi(values[1]);
-    } catch (std::runtime_error & e) {
+    } catch (std::exception & e) {
         isValid = false;
         return;
     }
@@ -89,6 +89,8 @@ entity::entity(std::string & serverData) {
     
     try {
         hp = std::stoi(values[3]);
+        sprite = std::stoi(values[4]);
+        matchesWon = std::stoi(values[5]);
     } catch (std::exception & e) {
         isValid = false;
     }
