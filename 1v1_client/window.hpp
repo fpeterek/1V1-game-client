@@ -36,6 +36,8 @@ class Window : sf::RenderWindow {
     std::vector<sf::Texture> _textures;
     sf::Sprite _background;
     std::vector<sf::Sprite> _sprites;
+    /* Sprites, that can be added from elsewhere, eg. the client */
+    std::vector<std::reference_wrapper<sf::Sprite>> _otherSprites;
     std::vector<std::reference_wrapper<Player>> _players;
     
     sf::Font _font;
@@ -54,12 +56,14 @@ class Window : sf::RenderWindow {
 public:
     
     sf::Texture & getSpritesheet();
+    sf::Texture & getDoritoSprite();
     float getScale();
     bool open();
     std::string getEvents();
     void initialize();
     void render();
     void addPlayer(Player & player);
+    void addSprite(sf::Sprite & sprite);
     void Display();
     
 };

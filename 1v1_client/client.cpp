@@ -67,6 +67,16 @@ Client::Client(sf::IpAddress & ip, unsigned short port, unsigned short portServe
     _window.addPlayer(_player);
     _window.addPlayer(_player2);
     
+    _dorito  = Dorito(_window.getDoritoSprite());
+    _dorito2 = Dorito(_window.getDoritoSprite());
+    
+    _dorito.setScale(scale, scale);
+    _dorito2.setScale(scale, scale);
+    
+    _window.addSprite(_dorito);
+    _window.addSprite(_dorito2);
+    
+    
     /* Don't want a blocking socket anymore so we don't wait forever in case no packets are recieved */
     _socket.setBlocking(false);
     
@@ -111,8 +121,11 @@ void Client::receiveData() {
 void Client::parseData(std::string & data) {
     
     _serverResponse.setResponse(data);
-    _player.update(  _serverResponse.getEntity("p1") );
+    
+    _player.update ( _serverResponse.getEntity("p1") );
     _player2.update( _serverResponse.getEntity("p2") );
+    _dorito.update ( _serverResponse.getEntity("d1") );
+    _dorito2.update( _serverResponse.getEntity("d2") );
     
 }
 

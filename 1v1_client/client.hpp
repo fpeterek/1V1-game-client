@@ -20,6 +20,7 @@
 
 #include "window.hpp"
 #include "Player.hpp"
+#include "dorito.hpp"
 #include "request.hpp"
 #include "response.hpp"
 
@@ -38,6 +39,9 @@ class Client {
     
     Player _player;
     Player _player2;
+    
+    Dorito _dorito;
+    Dorito _dorito2;
     
     char _receivedData[1024];
     

@@ -71,6 +71,7 @@ void Window::initialize() {
     loadTexture("middle_platform.png");
     loadTexture("sidewalls.png");
     loadTexture("spritesheet.png");
+    loadTexture("Dorito.png");
     
     initSprites();
     initControls();
@@ -165,6 +166,10 @@ void Window::render() {
         draw(player.get());
     }
     
+    for (auto & i : _otherSprites) {
+        draw(i.get());
+    }
+    
     updateText();
     draw(std::get<0>(_text));
     draw(std::get<1>(_text));
@@ -180,10 +185,23 @@ sf::Texture & Window::getSpritesheet() {
     
 }
 
+sf::Texture & Window::getDoritoSprite() {
+    
+    return _textures[5];
+    
+}
+
 void Window::addPlayer(Player & player) {
     
     std::reference_wrapper<Player> ref = player;
     _players.emplace_back(ref);
+    
+}
+
+void Window::addSprite(sf::Sprite & sprite) {
+    
+    std::reference_wrapper<sf::Sprite> ref = sprite;
+    _otherSprites.emplace_back(ref);
     
 }
 
