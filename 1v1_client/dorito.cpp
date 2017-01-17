@@ -8,10 +8,13 @@
 
 #include "dorito.hpp"
 
-Dorito::Dorito() {}
+Dorito::Dorito() {
+    setPosition(0, -100);
+}
 
 Dorito::Dorito(sf::Texture & texture) {
     
+    setPosition(0, -100);
     setTexture(texture);
     setTextureRect(sf::IntRect(0, 0, 16, 16));
     

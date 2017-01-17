@@ -16,6 +16,7 @@
 #include <functional>
 #include <chrono>
 #include <tuple>
+#include <random>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -25,6 +26,13 @@
 
 #include "Player.hpp"
 
+class Cloud : public sf::Sprite {
+    
+public:
+    direction dir;
+    
+};
+
 /* Don't want to expose any sf::RenderWindow methods, so I'm keeping them private   */
 /* This class serves as an interface for sf::RenderWindow that simplifies           */
 /* rendering in the rest of the code by hiding loops, scaling, etc.                 */
@@ -33,8 +41,10 @@ class Window : sf::RenderWindow {
     
     const std::map<sf::Keyboard::Key, std::string> _controls;
     
+    std::mt19937 _rand;
     std::vector<sf::Texture> _textures;
     sf::Sprite _background;
+    std::vector<Cloud> _clouds;
     std::vector<sf::Sprite> _sprites;
     /* Sprites, that can be added from elsewhere, eg. the client */
     std::vector<std::reference_wrapper<sf::Sprite>> _otherSprites;
@@ -47,6 +57,8 @@ class Window : sf::RenderWindow {
     float _scale;
     
     void updateText();
+    void updateCloud(Cloud & cloud);
+    void resetCloud(Cloud & cloud);
     
     void loadTexture(const char * textureName);
     void initSprites();

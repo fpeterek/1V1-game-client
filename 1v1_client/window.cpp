@@ -20,7 +20,7 @@ void Window::initControls() {
         { sf::Keyboard::Key::Left  , "l" }, // Go left
         { sf::Keyboard::Key::Right , "r" }, // Go right
         { sf::Keyboard::Key::Space , "a" }, // Attack
-        { sf::Keyboard::Key::R     , "d" }, // Throw a dorito
+        { sf::Keyboard::Key::Q     , "d" }, // Throw a dorito
         { sf::Keyboard::Key::E     , "t" }  // Teleport behind. Nothing personnel, though.
     });
     
@@ -64,6 +64,8 @@ void Window::initialize() {
         throw std::runtime_error("Error loading font Inconsolata.ttf. ");
     }
     
+    _rand = std::mt19937((unsigned int)std::chrono::system_clock::now().time_since_epoch().count());
+    
     initText();
     
     loadTexture("background.png");
@@ -72,6 +74,9 @@ void Window::initialize() {
     loadTexture("sidewalls.png");
     loadTexture("spritesheet.png");
     loadTexture("Dorito.png");
+    loadTexture("Crate.png");
+    loadTexture("Cloud.png");
+    loadTexture("Cloud Fedora.png");
     
     initSprites();
     initControls();
@@ -103,8 +108,8 @@ void Window::initSprites() {
         sf::Sprite platform;
         platform.setScale(_scale, _scale);
         platform.setTexture(_textures[2]);
-        platform.setOrigin(384 / 2, 0);
-        platform.setPosition(400 * _scale, 250 * _scale);
+        platform.setOrigin(320 / 2, 0);
+        platform.setPosition(400 * _scale, 220 * _scale);
         _sprites.emplace_back(platform);
     
     }
@@ -122,6 +127,100 @@ void Window::initSprites() {
         _sprites.emplace_back(sidewall2);
         
     }
+    
+    /* Crates */ {
+        
+        auto initCrate = [this](int x, int y) -> void {
+            
+            sf::Sprite crate;
+            crate.setTexture(_textures[6]);
+            crate.setScale(_scale, _scale);
+            
+            crate.setPosition(x * _scale, y * _scale);
+            
+            _sprites.emplace_back(crate);
+            
+        };
+        
+        /* Left spawn */
+        initCrate(96, 354);
+        initCrate(96 + 32, 354);
+        initCrate(96 + 64, 354);
+        initCrate(96 + 32, 354 - 32);
+        initCrate(96, 354 - 32);
+        initCrate(96, 354 - 64);
+        
+        /* Right spawn */
+        initCrate(800 - 96 - 32, 354);
+        initCrate(800 - 96 - 32, 354 - 64);
+        initCrate(800 - 96 - 64, 354 - 32);
+        initCrate(800 - 96 - 32, 354 - 32);
+        initCrate(800 - 96 - 64, 354);
+        initCrate(800 - 96 - 96, 354);
+        
+        /* Middle */
+        initCrate(400 - 50 - 32, 354);
+        initCrate(400 + 50, 354);
+        
+        /* Top */
+        initCrate(400 - 32, 194);
+        initCrate(400 - 64, 194);
+        initCrate(400 - 64, 194 - 32);
+        initCrate(400 - 96, 194);
+        initCrate(400, 194);
+        initCrate(400 + 32, 194);
+        initCrate(400 + 32, 194 - 32);
+        initCrate(400 + 64, 194);
+        
+    }
+    
+    /* Clouds */ {
+        
+        auto initCloud = [this](int texture) {
+            
+            Cloud cloud;
+            cloud.setTexture(_textures[texture]);
+            cloud.setScale(_scale * 2, _scale * 2);
+            
+            const direction directions[2] = { direction::left, direction::right };
+            cloud.dir = directions[_rand() % 2];
+            cloud.setPosition((_rand() % 800) * _scale, (_rand() % 200) * _scale);
+            
+            _clouds.emplace_back(cloud);
+            
+        };
+        
+        initCloud(7);
+        initCloud(7);
+        initCloud(8);
+        
+    }
+    
+}
+
+void Window::resetCloud(Cloud & cloud) {
+    
+    const direction directions[2] = { direction::left, direction::right };
+    cloud.dir = directions[_rand() % 2];
+    
+    if (cloud.dir == direction::left) {
+        cloud.setPosition(800 * _scale, (_rand() % 200) * _scale);
+    } else {
+        cloud.setPosition(-64 * _scale * 2 , (_rand() % 200) * _scale);
+    }
+    
+}
+
+void Window::updateCloud(Cloud & cloud) {
+
+    
+    if ( not cloud.getGlobalBounds().intersects(_background.getGlobalBounds()) ) {
+        
+        resetCloud(cloud);
+        
+    }
+    
+    cloud.move(cloud.dir == direction::left ? -0.5f : 0.5f, 0);
     
 }
 
@@ -157,6 +256,13 @@ void Window::render() {
     clear();
     
     draw(_background);
+    
+    for (auto & cloud : _clouds) {
+    
+        updateCloud(cloud);
+        draw(cloud);
+    
+    }
     
     for (auto & sprite : _sprites) {
         draw(sprite);
