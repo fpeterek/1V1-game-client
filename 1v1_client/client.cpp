@@ -93,7 +93,7 @@ void Client::sleep(const unsigned int milliseconds) {
     int timeToSleep = milliseconds - _clock.restart().asMilliseconds() + (timeSlept < 0 ? timeSlept : 0);
     std::this_thread::sleep_for( std::chrono::milliseconds(timeToSleep) );
     timeSlept = timeToSleep;
-    // std::cout << "Time slept: " << timeSlept << std::endl;
+    
 }
 
 void Client::receiveData() {
