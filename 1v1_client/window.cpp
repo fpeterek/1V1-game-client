@@ -31,7 +31,8 @@ void Window::initText() {
     auto init = [&] (sf::Text & text) -> void {
         
         text.setFont(_font);
-        // Background colors are 20, BD, FC
+        /* Set text color to the opposite color of the background color */
+        /* Background color is 0x20, 0xBD, 0xFC                         */
         text.setColor(sf::Color(~(char)0x20, ~(char)0xBD, ~(char)0xFC));
         text.setCharacterSize(18 * _scale);
         text.setString("0");
@@ -68,15 +69,16 @@ void Window::initialize() {
     
     initText();
     
-    loadTexture("background.png");
-    loadTexture("ground.png");
-    loadTexture("middle_platform.png");
-    loadTexture("sidewalls.png");
-    loadTexture("spritesheet.png");
-    loadTexture("Dorito.png");
-    loadTexture("Crate.png");
-    loadTexture("Cloud.png");
-    loadTexture("Cloud Fedora.png");
+    loadTexture("background.png"        );
+    loadTexture("ground.png"            );
+    loadTexture("middle_platform.png"   );
+    loadTexture("sidewalls.png"         );
+    loadTexture("spritesheet.png"       );
+    loadTexture("Dorito.png"            );
+    loadTexture("Crate.png"             );
+    loadTexture("Cloud.png"             );
+    loadTexture("Cloud Fedora.png"      );
+    loadTexture("bush.png"              );
     
     initSprites();
     initControls();
