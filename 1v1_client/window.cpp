@@ -72,7 +72,7 @@ void Window::initialize() {
     loadTexture( "background.png"       );
     loadTexture( "ground.png"           );
     loadTexture( "middle_platform.png"  );
-    loadTexture( "sidewalls.png"        );
+    loadTexture( "sidewall2.png"        );
     loadTexture( "spritesheet.png"      );
     loadTexture( "Dorito.png"           );
     loadTexture( "Crate.png"            );
@@ -80,7 +80,7 @@ void Window::initialize() {
     loadTexture( "Cloud Fedora.png"     );
     loadTexture( "bush.png"             );
     loadTexture( "Tree.png"             );
-    loadTexture( "Big Tree 2 (1).png"       );
+    loadTexture( "Big Tree 2.png"       );
     
     initSprites();
     initControls();
@@ -116,6 +116,7 @@ void Window::initSprites() {
         _sprites.emplace_back(sidewall);
         
         sf::Sprite sidewall2(sidewall);
+        sidewall2.setTextureRect(sf::IntRect( 96, 0, -96, 352 ));
         sidewall2.setPosition((800 - 96) * _scale, (450 - 352) * _scale);
         _sprites.emplace_back(sidewall2);
         
@@ -178,9 +179,6 @@ void Window::initSprites() {
         initBush(470, 175);
         initBush(350, 170);
         
-        initBush(800 - 52 - 30, 56);
-        initBush(52, 56);
-        
     }
     
     /* Crates */ {
@@ -226,12 +224,6 @@ void Window::initSprites() {
         initCrate(400 + 32, 194);
         initCrate(400 + 32, 194 - 32);
         initCrate(400 + 64, 194);
-        
-        /* Decoration */
-        initCrate(15, 72);
-        initCrate(800 - 20, 72);
-        initCrate(800 - 20, 40);
-        initCrate(800 - 52, 72);
         
     }
     
