@@ -10,6 +10,7 @@
 		4E02CBB21E2949FE009F0BB3 /* dorito.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E02CBB01E2949FE009F0BB3 /* dorito.cpp */; };
 		4E02CBB41E294B21009F0BB3 /* Dorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E02CBB31E294B21009F0BB3 /* Dorito.png */; };
 		4E0B348C1E2EAF3400B82AE4 /* bush.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E0B348B1E2EAF3400B82AE4 /* bush.png */; };
+		4E74B5621E313ACD005AB2EC /* Tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E74B5611E313ACD005AB2EC /* Tree.png */; };
 		4E7A20FA1E130FB100F3C0D8 /* response.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E7A20F81E130FB100F3C0D8 /* response.cpp */; };
 		4E801A8D1E0E942200561A44 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E801A8B1E0E942200561A44 /* Player.cpp */; };
 		4E801A8F1E0EB09F00561A44 /* spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E801A8E1E0EB09F00561A44 /* spritesheet.png */; };
@@ -22,6 +23,8 @@
 		4E90942F1E0AFEF000B2686F /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E90942B1E0AFEF000B2686F /* ground.png */; };
 		4E9094301E0AFEF000B2686F /* middle_platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E90942C1E0AFEF000B2686F /* middle_platform.png */; };
 		4E9094311E0AFEF000B2686F /* sidewalls.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E90942D1E0AFEF000B2686F /* sidewalls.png */; };
+		4EEC283F1E33E40300F011C2 /* Big Tree 2 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC283D1E33E40300F011C2 /* Big Tree 2 (1).png */; };
+		4EEC28401E33E40300F011C2 /* Big Tree 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC283E1E33E40300F011C2 /* Big Tree 2.png */; };
 		4EF1BFEA1DFF201F005DF164 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4EF1BFE91DFF201F005DF164 /* ResourcePath.mm */; };
 		4EF1BFED1DFF201F005DF164 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EF1BFEC1DFF201F005DF164 /* main.cpp */; };
 		4EF1C0291DFF222A005DF164 /* client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EF1C0271DFF222A005DF164 /* client.cpp */; };
@@ -33,6 +36,7 @@
 		4E02CBB11E2949FE009F0BB3 /* dorito.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dorito.hpp; sourceTree = "<group>"; };
 		4E02CBB31E294B21009F0BB3 /* Dorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Dorito.png; path = ../../../Grafika/Neckbeard/Dorito.png; sourceTree = "<group>"; };
 		4E0B348B1E2EAF3400B82AE4 /* bush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bush.png; path = ../../../Grafika/Neckbeard/bush.png; sourceTree = "<group>"; };
+		4E74B5611E313ACD005AB2EC /* Tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tree.png; path = ../../../Grafika/Neckbeard/Tree.png; sourceTree = "<group>"; };
 		4E7A20F81E130FB100F3C0D8 /* response.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = response.cpp; sourceTree = "<group>"; };
 		4E7A20F91E130FB100F3C0D8 /* response.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = response.hpp; sourceTree = "<group>"; };
 		4E801A8B1E0E942200561A44 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
@@ -48,6 +52,8 @@
 		4E90942B1E0AFEF000B2686F /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ground.png; path = ../../../Grafika/Neckbeard/ground.png; sourceTree = "<group>"; };
 		4E90942C1E0AFEF000B2686F /* middle_platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = middle_platform.png; path = ../../../Grafika/Neckbeard/middle_platform.png; sourceTree = "<group>"; };
 		4E90942D1E0AFEF000B2686F /* sidewalls.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sidewalls.png; path = ../../../Grafika/Neckbeard/sidewalls.png; sourceTree = "<group>"; };
+		4EEC283D1E33E40300F011C2 /* Big Tree 2 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Big Tree 2 (1).png"; path = "../../../Grafika/Neckbeard/Big Tree 2 (1).png"; sourceTree = "<group>"; };
+		4EEC283E1E33E40300F011C2 /* Big Tree 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Big Tree 2.png"; path = "../../../Grafika/Neckbeard/Big Tree 2.png"; sourceTree = "<group>"; };
 		4EF1BFE41DFF201F005DF164 /* 1v1_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1v1_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF1BFE81DFF201F005DF164 /* 1v1_client-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "1v1_client-Info.plist"; sourceTree = "<group>"; };
 		4EF1BFE91DFF201F005DF164 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -73,6 +79,9 @@
 		4E9094291E0AFEB200B2686F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4EEC283D1E33E40300F011C2 /* Big Tree 2 (1).png */,
+				4EEC283E1E33E40300F011C2 /* Big Tree 2.png */,
+				4E74B5611E313ACD005AB2EC /* Tree.png */,
 				4E0B348B1E2EAF3400B82AE4 /* bush.png */,
 				4E8754C51E2C09E1000D48BA /* Cloud Fedora.png */,
 				4E8754C61E2C09E1000D48BA /* Cloud.png */,
@@ -198,13 +207,16 @@
 				4E8754C71E2C09E1000D48BA /* Cloud Fedora.png in Resources */,
 				4E0B348C1E2EAF3400B82AE4 /* bush.png in Resources */,
 				4E9094311E0AFEF000B2686F /* sidewalls.png in Resources */,
+				4E74B5621E313ACD005AB2EC /* Tree.png in Resources */,
 				4E90942F1E0AFEF000B2686F /* ground.png in Resources */,
 				4E8D09131E255AA7005D085A /* Inconsolata.ttf in Resources */,
 				4E8754C41E2BF631000D48BA /* Crate.png in Resources */,
+				4EEC28401E33E40300F011C2 /* Big Tree 2.png in Resources */,
 				4E90942E1E0AFEF000B2686F /* background.png in Resources */,
 				4E9094301E0AFEF000B2686F /* middle_platform.png in Resources */,
 				4E8754C81E2C09E1000D48BA /* Cloud.png in Resources */,
 				4E801A8F1E0EB09F00561A44 /* spritesheet.png in Resources */,
+				4EEC283F1E33E40300F011C2 /* Big Tree 2 (1).png in Resources */,
 				4E02CBB41E294B21009F0BB3 /* Dorito.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

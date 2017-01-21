@@ -69,16 +69,18 @@ void Window::initialize() {
     
     initText();
     
-    loadTexture("background.png"        );
-    loadTexture("ground.png"            );
-    loadTexture("middle_platform.png"   );
-    loadTexture("sidewalls.png"         );
-    loadTexture("spritesheet.png"       );
-    loadTexture("Dorito.png"            );
-    loadTexture("Crate.png"             );
-    loadTexture("Cloud.png"             );
-    loadTexture("Cloud Fedora.png"      );
-    loadTexture("bush.png"              );
+    loadTexture( "background.png"       );
+    loadTexture( "ground.png"           );
+    loadTexture( "middle_platform.png"  );
+    loadTexture( "sidewalls.png"        );
+    loadTexture( "spritesheet.png"      );
+    loadTexture( "Dorito.png"           );
+    loadTexture( "Crate.png"            );
+    loadTexture( "Cloud.png"            );
+    loadTexture( "Cloud Fedora.png"     );
+    loadTexture( "bush.png"             );
+    loadTexture( "Tree.png"             );
+    loadTexture( "Big Tree 2.png"       );
     
     initSprites();
     initControls();
@@ -105,17 +107,6 @@ void Window::initSprites() {
         
     }
     
-    /* Platform */ {
-    
-        sf::Sprite platform;
-        platform.setScale(_scale, _scale);
-        platform.setTexture(_textures[2]);
-        platform.setOrigin(320 / 2, 0);
-        platform.setPosition(400 * _scale, 220 * _scale);
-        _sprites.emplace_back(platform);
-    
-    }
-    
     /* Sidewalls */ {
         
         sf::Sprite sidewall;
@@ -127,6 +118,70 @@ void Window::initSprites() {
         sf::Sprite sidewall2(sidewall);
         sidewall2.setPosition((800 - 96) * _scale, (450 - 352) * _scale);
         _sprites.emplace_back(sidewall2);
+        
+    }
+    
+    /* Trees */ {
+        
+        auto initTree = [this](int x, int y) -> void {
+            
+            sf::Sprite tree;
+            tree.setTexture(_textures[10]);
+            tree.setScale(_scale, _scale);
+            
+            tree.setPosition(x * _scale, y * _scale);
+            
+            _sprites.emplace_back(tree);
+            
+        };
+        
+        // initTree(180, 258);
+        initTree(430, 258);
+        initTree(220, 98);
+        
+        sf::Sprite tree;
+        tree.setTexture(_textures[11]);
+        tree.setScale(_scale, _scale);
+        tree.setPosition(40 * _scale, 66 * _scale);
+        _sprites.emplace_back(tree);
+        
+        
+    }
+    
+    /* Platform */ {
+        
+        sf::Sprite platform;
+        platform.setScale(_scale, _scale);
+        platform.setTexture(_textures[2]);
+        platform.setOrigin(320 / 2, 0);
+        platform.setPosition(400 * _scale, 220 * _scale);
+        _sprites.emplace_back(platform);
+        
+    }
+    
+    /* Bushes */ {
+        
+        auto initBush = [this](int x, int y) -> void {
+            
+            sf::Sprite bush;
+            bush.setTexture(_textures[9]);
+            bush.setScale(_scale, _scale);
+            
+            bush.setPosition(x * _scale, y * _scale);
+            
+            _sprites.emplace_back(bush);
+            
+        };
+        
+        initBush(160, 340);
+        initBush(386, 340);
+        initBush(540, 340);
+        
+        initBush(470, 175);
+        initBush(350, 170);
+        
+        initBush(800 - 52 - 30, 56);
+        initBush(52, 56);
         
     }
     
@@ -145,24 +200,24 @@ void Window::initSprites() {
         };
         
         /* Left spawn */
-        initCrate(96, 354);
-        initCrate(96 + 32, 354);
-        initCrate(96 + 64, 354);
-        initCrate(96 + 32, 354 - 32);
-        initCrate(96, 354 - 32);
-        initCrate(96, 354 - 64);
+        initCrate(96, 360);
+        initCrate(96 + 32, 360);
+        initCrate(96 + 64, 360);
+        initCrate(96 + 32, 360 - 32);
+        initCrate(96, 360 - 32);
+        initCrate(96, 360 - 64);
         
         /* Right spawn */
-        initCrate(800 - 96 - 32, 354);
-        initCrate(800 - 96 - 32, 354 - 64);
-        initCrate(800 - 96 - 64, 354 - 32);
-        initCrate(800 - 96 - 32, 354 - 32);
-        initCrate(800 - 96 - 64, 354);
-        initCrate(800 - 96 - 96, 354);
+        initCrate(800 - 96 - 32, 360);
+        initCrate(800 - 96 - 32, 360 - 64);
+        initCrate(800 - 96 - 64, 360 - 32);
+        initCrate(800 - 96 - 32, 360 - 32);
+        initCrate(800 - 96 - 64, 360);
+        initCrate(800 - 96 - 96, 360);
         
         /* Middle */
-        initCrate(400 - 50 - 32, 354);
-        initCrate(400 + 50, 354);
+        initCrate(400 - 50 - 32, 360);
+        initCrate(400 + 50, 360);
         
         /* Top */
         initCrate(400 - 32, 194);
@@ -173,6 +228,12 @@ void Window::initSprites() {
         initCrate(400 + 32, 194);
         initCrate(400 + 32, 194 - 32);
         initCrate(400 + 64, 194);
+        
+        /* Decoration */
+        initCrate(15, 72);
+        initCrate(800 - 20, 72);
+        initCrate(800 - 20, 40);
+        initCrate(800 - 52, 72);
         
     }
     
