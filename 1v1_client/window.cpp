@@ -80,7 +80,7 @@ void Window::initialize() {
     loadTexture( "Cloud Fedora.png"     );
     loadTexture( "bush.png"             );
     loadTexture( "Tree.png"             );
-    loadTexture( "Big Tree 2.png"       );
+    loadTexture( "Big Tree 2 (1).png"       );
     
     initSprites();
     initControls();
@@ -135,9 +135,8 @@ void Window::initSprites() {
             
         };
         
-        // initTree(180, 258);
+        initTree(225, 258);
         initTree(430, 258);
-        initTree(220, 98);
         
         sf::Sprite tree;
         tree.setTexture(_textures[11]);
@@ -173,7 +172,6 @@ void Window::initSprites() {
             
         };
         
-        initBush(160, 340);
         initBush(386, 340);
         initBush(540, 340);
         
