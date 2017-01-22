@@ -86,7 +86,7 @@ sf::IpAddress get_ip() {
     sf::Text text;
     
     text.setPosition(0, 15);
-    text.setColor(sf::Color::Black);
+    text.setFillColor(sf::Color::Black);
     text.setFont(font);
     text.setCharacterSize(30);
     
@@ -156,7 +156,7 @@ void display_error_message(const std::string & message) {
     sf::Text text;
     
     text.setPosition(0, 15);
-    text.setColor(sf::Color::Black);
+    text.setFillColor(sf::Color::Black);
     text.setFont(font);
     text.setCharacterSize(30);
     
