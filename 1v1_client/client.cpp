@@ -39,8 +39,18 @@ Client::Client(sf::IpAddress & ip, unsigned short port, unsigned short portServe
     sf::IpAddress remoteAddress;
     unsigned short remotePort;
     
-    if (_socket.receive(data, 10, received, remoteAddress, remotePort) != sf::Socket::Done) {
-        throw std::runtime_error("Error establishing connection");
+    _socket.setBlocking(false);
+    
+    int counter = 0;
+    while (_socket.receive(data, 10, received, remoteAddress, remotePort) != sf::Socket::Done) {
+        
+        /* If no packets are received, wait 10 milliseconds and try again   */
+        /* If the client has been waiting for 3 seconds, throw an exception */
+        ++counter;
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+        if (counter > 300) {
+            throw std::runtime_error("Error establishing connection");
+        }
     }
     
     std::cout << "Received " << received << " bytes from " << remoteAddress.toString() << ":" << remotePort << " - " <<

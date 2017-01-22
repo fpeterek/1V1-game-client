@@ -20,38 +20,13 @@
 #include "ResourcePath.hpp"
 
 #include "Client.hpp"
+#include "helperFunctions.hpp"
 
 #define PORT_CLIENT 60002
 #define PORT_SERVER 60001
 
 /* Debugging macro so I don't have to retype 127.0.0.1 each time I run the client */
-#define AUTOCONNECT_TO_LOCALHOST
-
-sf::IpAddress get_ip() {
-    
-    std::string str;
-    sf::IpAddress ip;
-    while (true) {
-        
-        std::cout << "IP Address: ";
-        std::cin >> str;
-        
-        try {
-            
-            ip = sf::IpAddress(str);
-            break;
-            
-        } catch (std::runtime_error & e) {
-            
-            std::cout << e.what() << std::endl;
-            
-        }
-        
-    }
-    
-    return ip;
-    
-}
+// #define AUTOCONNECT_TO_LOCALHOST
 
 int main(int argc, const char * argv[]) {
     
@@ -61,12 +36,25 @@ int main(int argc, const char * argv[]) {
         sf::IpAddress ip = "127.0.0.1";
 #else
         sf::IpAddress ip = get_ip();
+        
+        if (ip.toString() == "0.0.0.0") {
+            return 0;
+        }
 #endif
         Client(ip, PORT_CLIENT, PORT_SERVER);
         
     } catch (std::runtime_error & e) {
         
-        std::cout << e.what() << std::endl;
+        try {
+            
+            display_error_message(e.what());
+            
+        } catch (std::exception) {
+        
+            std::cout << "An unexpected error has occured while displaying an error." << std::endl;
+            std::cout << e.what() << std::endl;
+            
+        }
         
     }
     

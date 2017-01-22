@@ -42,8 +42,8 @@ class Window : sf::RenderWindow {
     const std::map<sf::Keyboard::Key, std::string> _controls;
     
     std::mt19937 _rand;
-    std::vector<sf::Texture> _textures;
-    sf::Sprite _background;
+    std::map<std::string, sf::Texture> _textures;
+    sf::RectangleShape _background;
     std::vector<Cloud> _clouds;
     std::vector<sf::Sprite> _sprites;
     /* Sprites, that can be added from elsewhere, eg. the client */
@@ -60,7 +60,7 @@ class Window : sf::RenderWindow {
     void updateCloud(Cloud & cloud);
     void resetCloud(Cloud & cloud);
     
-    void loadTexture(const char * textureName);
+    void loadTexture(std::string && textureName, std::string && dictionaryName);
     void initSprites();
     void initControls();
     void initText();

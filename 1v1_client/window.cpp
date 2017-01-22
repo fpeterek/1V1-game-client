@@ -61,26 +61,28 @@ void Window::initialize() {
     
     _text = std::make_tuple(sf::Text(), sf::Text());
     
-    if (not _font.loadFromFile(resourcePath() + "Inconsolata.ttf")) {
-        throw std::runtime_error("Error loading font Inconsolata.ttf. ");
+    if (not _font.loadFromFile(resourcePath() + "LCD_Solid.ttf")) {
+        throw std::runtime_error("Error loading font LCD_Solid.ttf. ");
     }
     
     _rand = std::mt19937((unsigned int)std::chrono::system_clock::now().time_since_epoch().count());
     
     initText();
     
-    loadTexture( "background.png"       );
-    loadTexture( "ground.png"           );
-    loadTexture( "middle_platform.png"  );
-    loadTexture( "sidewall2.png"        );
-    loadTexture( "spritesheet.png"      );
-    loadTexture( "Dorito.png"           );
-    loadTexture( "Crate.png"            );
-    loadTexture( "Cloud.png"            );
-    loadTexture( "Cloud Fedora.png"     );
-    loadTexture( "bush.png"             );
-    loadTexture( "Tree.png"             );
-    loadTexture( "Big Tree 2.png"       );
+    loadTexture( "ground.png"          , "ground"       );
+    loadTexture( "middle_platform.png" , "platform"     );
+    loadTexture( "sidewall2.png"       , "sidewall"     );
+    loadTexture( "spritesheet.png"     , "spritesheet"  );
+    loadTexture( "Dorito.png"          , "dorito"       );
+    loadTexture( "Crate.png"           , "crate"        );
+    loadTexture( "Metal Box.png"       , "mdbox"        );
+    loadTexture( "Metal Box Dorito.png", "dbox"         );
+    loadTexture( "Cloud.png"           , "cloud"        );
+    loadTexture( "Cloud Fedora.png"    , "cloud_fedora" );
+    loadTexture( "Bush 2.png"          , "bush"        );
+    loadTexture( "Tree.png"            , "tree"         );
+    loadTexture( "Tree 2.png"           , "tree2"        );
+    loadTexture( "Big Tree 2.png"      , "big_tree"     );
     
     initSprites();
     initControls();
@@ -89,28 +91,34 @@ void Window::initialize() {
 
 void Window::initSprites() {
     
-    /* Background */ {
+    auto initSprite = [this](int x, int y, std::string && textureName) -> void {
+        
+        sf::Sprite sprite;
+        sprite.setTexture(_textures[textureName]);
+        sprite.setScale(_scale, _scale);
+        
+        sprite.setPosition(x * _scale, y * _scale);
+        
+        _sprites.emplace_back(sprite);
+        
+    };
     
-        _background.setTexture(_textures[0]);
-        /* Set scale so that a 32 * 32 texture streches across the entire screen */
-        _background.setScale(800.f / 32.f * _scale, 450.f / 32.f * _scale);
+    /* Background */ {
+        
+        _background.setSize( sf::Vector2f(800, 450) );
+        _background.setScale(_scale, _scale);
+        _background.setFillColor( sf::Color(0x20, 0xBD, 0xFC) );
     
     }
     
     /* Ground */ {
-        
-        sf::Sprite ground;
-        ground.setScale(_scale, _scale);
-        ground.setTexture(_textures[1]);
-        ground.setPosition(0, (450 - 64) * _scale);
-        _sprites.emplace_back(ground);
-        
+        initSprite(0, 450 - 64, "ground");
     }
     
     /* Sidewalls */ {
         
         sf::Sprite sidewall;
-        sidewall.setTexture(_textures[3]);
+        sidewall.setTexture(_textures["sidewall"]);
         sidewall.setScale(_scale, _scale);
         sidewall.setPosition(0, (450 - 352) * _scale);
         _sprites.emplace_back(sidewall);
@@ -124,27 +132,11 @@ void Window::initSprites() {
     
     /* Trees */ {
         
-        auto initTree = [this](int x, int y) -> void {
-            
-            sf::Sprite tree;
-            tree.setTexture(_textures[10]);
-            tree.setScale(_scale, _scale);
-            
-            tree.setPosition(x * _scale, y * _scale);
-            
-            _sprites.emplace_back(tree);
-            
-        };
+        auto initTree = initSprite;
         
-        initTree(225, 258);
-        initTree(430, 258);
-        
-        sf::Sprite tree;
-        tree.setTexture(_textures[11]);
-        tree.setScale(_scale, _scale);
-        tree.setPosition(40 * _scale, 66 * _scale);
-        _sprites.emplace_back(tree);
-        
+        initTree(225, 258, "tree");
+        initTree(450, 258, "tree2");
+        initTree(40, 66, "big_tree");
         
     }
     
@@ -152,7 +144,7 @@ void Window::initSprites() {
         
         sf::Sprite platform;
         platform.setScale(_scale, _scale);
-        platform.setTexture(_textures[2]);
+        platform.setTexture(_textures["platform"]);
         platform.setOrigin(320 / 2, 0);
         platform.setPosition(400 * _scale, 220 * _scale);
         _sprites.emplace_back(platform);
@@ -161,75 +153,61 @@ void Window::initSprites() {
     
     /* Bushes */ {
         
-        auto initBush = [this](int x, int y) -> void {
-            
-            sf::Sprite bush;
-            bush.setTexture(_textures[9]);
-            bush.setScale(_scale, _scale);
-            
-            bush.setPosition(x * _scale, y * _scale);
-            
-            _sprites.emplace_back(bush);
-            
-        };
+        auto initBush = initSprite;
         
-        initBush(386, 340);
-        initBush(540, 340);
+        initBush(100, 340 - 16 - 40, "bush");
+        initBush(120, 340 - 16 - 20, "bush");
         
-        initBush(470, 175);
-        initBush(350, 170);
+        initBush(200, 340 - 16, "bush");
+        initBush(340, 340 - 16, "bush");
+        initBush(396, 340 - 16, "bush");
+        initBush(550, 340 - 16, "bush");
+        
+        initBush(470, 175 - 16, "bush");
+        initBush(250, 175 - 16, "bush");
+        initBush(350, 170 - 25, "bush" );
         
     }
     
     /* Crates */ {
         
-        auto initCrate = [this](int x, int y) -> void {
-            
-            sf::Sprite crate;
-            crate.setTexture(_textures[6]);
-            crate.setScale(_scale, _scale);
-            
-            crate.setPosition(x * _scale, y * _scale);
-            
-            _sprites.emplace_back(crate);
-            
-        };
+        auto initCrate = initSprite;
         
         /* Left spawn */
-        initCrate(96, 360);
-        initCrate(96 + 32, 360);
-        initCrate(96 + 64, 360);
-        initCrate(96 + 32, 360 - 32);
-        initCrate(96, 360 - 32);
-        initCrate(96, 360 - 64);
+        initCrate(96, 360,           "mdbox");
+        initCrate(96 + 32, 360,      "crate");
+        initCrate(96 + 64, 360,      "crate");
+        initCrate(96 + 32, 360 - 32, "mdbox");
+        initCrate(96, 360 - 32,      "dbox");
+        initCrate(96, 360 - 64,      "crate");
         
         /* Right spawn */
-        initCrate(800 - 96 - 32, 360);
-        initCrate(800 - 96 - 32, 360 - 64);
-        initCrate(800 - 96 - 64, 360 - 32);
-        initCrate(800 - 96 - 32, 360 - 32);
-        initCrate(800 - 96 - 64, 360);
-        initCrate(800 - 96 - 96, 360);
+        initCrate(800 - 96 - 32, 360,      "mdbox");
+        initCrate(800 - 96 - 32, 360 - 64, "crate");
+        initCrate(800 - 96 - 64, 360 - 32, "crate");
+        initCrate(800 - 96 - 32, 360 - 32, "dbox");
+        initCrate(800 - 96 - 64, 360,      "crate");
+        initCrate(800 - 96 - 96, 360,      "mdbox");
         
         /* Middle */
-        initCrate(400 - 50 - 32, 360);
-        initCrate(400 + 50, 360);
+        initCrate(400 - 50 - 32, 360, "mdbox");
+        initCrate(400 + 50, 360,      "crate");
         
         /* Top */
-        initCrate(400 - 32, 194);
-        initCrate(400 - 64, 194);
-        initCrate(400 - 64, 194 - 32);
-        initCrate(400 - 96, 194);
-        initCrate(400, 194);
-        initCrate(400 + 32, 194);
-        initCrate(400 + 32, 194 - 32);
-        initCrate(400 + 64, 194);
+        initCrate(400 - 32, 194,      "mdbox");
+        initCrate(400 - 64, 194,      "dbox");
+        initCrate(400 - 64, 194 - 32, "dbox");
+        initCrate(400 - 96, 194,      "crate");
+        initCrate(400, 194,           "crate");
+        initCrate(400 + 32, 194,      "dbox");
+        initCrate(400 + 32, 194 - 32, "mdbox");
+        initCrate(400 + 64, 194,      "crate");
         
     }
     
     /* Clouds */ {
         
-        auto initCloud = [this](int texture) {
+        auto initCloud = [this](std::string && texture) {
             
             Cloud cloud;
             cloud.setTexture(_textures[texture]);
@@ -243,9 +221,11 @@ void Window::initSprites() {
             
         };
         
-        initCloud(7);
-        initCloud(7);
-        initCloud(8);
+        initCloud("cloud");
+        initCloud("cloud");
+        initCloud("cloud");
+        initCloud("cloud_fedora");
+        initCloud("cloud_fedora");
         
     }
     
@@ -277,7 +257,7 @@ void Window::updateCloud(Cloud & cloud) {
     
 }
 
-void Window::loadTexture(const char * textureName) {
+void Window::loadTexture( std::string && textureName, std::string && dictionaryName) {
     
     sf::Texture temp;
     
@@ -290,7 +270,7 @@ void Window::loadTexture(const char * textureName) {
         
     }
     
-    _textures.emplace_back(temp);
+    _textures.emplace(dictionaryName, temp);
     
 }
 
@@ -340,13 +320,13 @@ void Window::render() {
 
 sf::Texture & Window::getSpritesheet() {
     
-    return _textures[4];
+    return _textures["spritesheet"];
     
 }
 
 sf::Texture & Window::getDoritoSprite() {
     
-    return _textures[5];
+    return _textures["dorito"];
     
 }
 

@@ -9,7 +9,11 @@
 /* Begin PBXBuildFile section */
 		4E02CBB21E2949FE009F0BB3 /* dorito.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E02CBB01E2949FE009F0BB3 /* dorito.cpp */; };
 		4E02CBB41E294B21009F0BB3 /* Dorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E02CBB31E294B21009F0BB3 /* Dorito.png */; };
-		4E0B348C1E2EAF3400B82AE4 /* bush.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E0B348B1E2EAF3400B82AE4 /* bush.png */; };
+		4E0476591E34E47400895C27 /* Metal Box Dorito.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E0476571E34E47400895C27 /* Metal Box Dorito.png */; };
+		4E04765A1E34E47400895C27 /* Metal Box.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E0476581E34E47400895C27 /* Metal Box.png */; };
+		4E04765C1E34E9D800895C27 /* LCD_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E04765B1E34E9D800895C27 /* LCD_Solid.ttf */; };
+		4E04765E1E34F61F00895C27 /* Tree 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E04765D1E34F61F00895C27 /* Tree 2.png */; };
+		4E0476611E35101700895C27 /* helperFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E04765F1E35101700895C27 /* helperFunctions.cpp */; };
 		4E74B5621E313ACD005AB2EC /* Tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E74B5611E313ACD005AB2EC /* Tree.png */; };
 		4E7A20FA1E130FB100F3C0D8 /* response.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E7A20F81E130FB100F3C0D8 /* response.cpp */; };
 		4E801A8D1E0E942200561A44 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E801A8B1E0E942200561A44 /* Player.cpp */; };
@@ -17,9 +21,7 @@
 		4E8754C41E2BF631000D48BA /* Crate.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8754C31E2BF631000D48BA /* Crate.png */; };
 		4E8754C71E2C09E1000D48BA /* Cloud Fedora.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8754C51E2C09E1000D48BA /* Cloud Fedora.png */; };
 		4E8754C81E2C09E1000D48BA /* Cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8754C61E2C09E1000D48BA /* Cloud.png */; };
-		4E8D09131E255AA7005D085A /* Inconsolata.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E8D09121E255AA7005D085A /* Inconsolata.ttf */; };
 		4E9094281E0AFD7700B2686F /* window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E9094261E0AFD7700B2686F /* window.cpp */; };
-		4E90942E1E0AFEF000B2686F /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E90942A1E0AFEF000B2686F /* background.png */; };
 		4E90942F1E0AFEF000B2686F /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E90942B1E0AFEF000B2686F /* ground.png */; };
 		4E9094301E0AFEF000B2686F /* middle_platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E90942C1E0AFEF000B2686F /* middle_platform.png */; };
 		4ECE132A1E33FF4500B09A6A /* sidewall2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE13291E33FF4500B09A6A /* sidewall2.png */; };
@@ -28,13 +30,19 @@
 		4EF1BFED1DFF201F005DF164 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EF1BFEC1DFF201F005DF164 /* main.cpp */; };
 		4EF1C0291DFF222A005DF164 /* client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EF1C0271DFF222A005DF164 /* client.cpp */; };
 		4EF3EEEC1E12CAD600DAE476 /* request.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3EEEA1E12CAD600DAE476 /* request.cpp */; };
+		4EF6976C1E34B779003D9483 /* Bush 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EF6976B1E34B779003D9483 /* Bush 2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4E02CBB01E2949FE009F0BB3 /* dorito.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dorito.cpp; sourceTree = "<group>"; };
 		4E02CBB11E2949FE009F0BB3 /* dorito.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dorito.hpp; sourceTree = "<group>"; };
 		4E02CBB31E294B21009F0BB3 /* Dorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Dorito.png; path = ../../../Grafika/Neckbeard/Dorito.png; sourceTree = "<group>"; };
-		4E0B348B1E2EAF3400B82AE4 /* bush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bush.png; path = ../../../Grafika/Neckbeard/bush.png; sourceTree = "<group>"; };
+		4E0476571E34E47400895C27 /* Metal Box Dorito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Metal Box Dorito.png"; path = "../../../Grafika/Neckbeard/Metal Box Dorito.png"; sourceTree = "<group>"; };
+		4E0476581E34E47400895C27 /* Metal Box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Metal Box.png"; path = "../../../Grafika/Neckbeard/Metal Box.png"; sourceTree = "<group>"; };
+		4E04765B1E34E9D800895C27 /* LCD_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = LCD_Solid.ttf; path = ../../../Grafika/Neckbeard/LCD_Solid.ttf; sourceTree = "<group>"; };
+		4E04765D1E34F61F00895C27 /* Tree 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Tree 2.png"; path = "../../../Grafika/Neckbeard/Tree 2.png"; sourceTree = "<group>"; };
+		4E04765F1E35101700895C27 /* helperFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = helperFunctions.cpp; sourceTree = "<group>"; };
+		4E0476601E35101700895C27 /* helperFunctions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = helperFunctions.hpp; sourceTree = "<group>"; };
 		4E74B5611E313ACD005AB2EC /* Tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tree.png; path = ../../../Grafika/Neckbeard/Tree.png; sourceTree = "<group>"; };
 		4E7A20F81E130FB100F3C0D8 /* response.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = response.cpp; sourceTree = "<group>"; };
 		4E7A20F91E130FB100F3C0D8 /* response.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = response.hpp; sourceTree = "<group>"; };
@@ -44,10 +52,8 @@
 		4E8754C31E2BF631000D48BA /* Crate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Crate.png; path = ../../../Grafika/Neckbeard/Crate.png; sourceTree = "<group>"; };
 		4E8754C51E2C09E1000D48BA /* Cloud Fedora.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Cloud Fedora.png"; path = "../../../Grafika/Neckbeard/Cloud Fedora.png"; sourceTree = "<group>"; };
 		4E8754C61E2C09E1000D48BA /* Cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cloud.png; path = ../../../Grafika/Neckbeard/Cloud.png; sourceTree = "<group>"; };
-		4E8D09121E255AA7005D085A /* Inconsolata.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Inconsolata.ttf; path = ../../../Grafika/Neckbeard/Inconsolata.ttf; sourceTree = "<group>"; };
 		4E9094261E0AFD7700B2686F /* window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = window.cpp; sourceTree = "<group>"; };
 		4E9094271E0AFD7700B2686F /* window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = window.hpp; sourceTree = "<group>"; };
-		4E90942A1E0AFEF000B2686F /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../../../Grafika/Neckbeard/background.png; sourceTree = "<group>"; };
 		4E90942B1E0AFEF000B2686F /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ground.png; path = ../../../Grafika/Neckbeard/ground.png; sourceTree = "<group>"; };
 		4E90942C1E0AFEF000B2686F /* middle_platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = middle_platform.png; path = ../../../Grafika/Neckbeard/middle_platform.png; sourceTree = "<group>"; };
 		4ECE13291E33FF4500B09A6A /* sidewall2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sidewall2.png; path = ../../../Grafika/Neckbeard/sidewall2.png; sourceTree = "<group>"; };
@@ -61,6 +67,7 @@
 		4EF1C0281DFF222A005DF164 /* client.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = client.hpp; sourceTree = "<group>"; };
 		4EF3EEEA1E12CAD600DAE476 /* request.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = request.cpp; sourceTree = "<group>"; };
 		4EF3EEEB1E12CAD600DAE476 /* request.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = request.hpp; sourceTree = "<group>"; };
+		4EF6976B1E34B779003D9483 /* Bush 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Bush 2.png"; path = "../../../Grafika/Neckbeard/Bush 2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,19 +84,21 @@
 		4E9094291E0AFEB200B2686F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4E04765D1E34F61F00895C27 /* Tree 2.png */,
+				4E04765B1E34E9D800895C27 /* LCD_Solid.ttf */,
+				4E0476571E34E47400895C27 /* Metal Box Dorito.png */,
+				4E0476581E34E47400895C27 /* Metal Box.png */,
+				4EF6976B1E34B779003D9483 /* Bush 2.png */,
 				4ECE13291E33FF4500B09A6A /* sidewall2.png */,
 				4EEC283E1E33E40300F011C2 /* Big Tree 2.png */,
 				4E74B5611E313ACD005AB2EC /* Tree.png */,
-				4E0B348B1E2EAF3400B82AE4 /* bush.png */,
 				4E8754C51E2C09E1000D48BA /* Cloud Fedora.png */,
 				4E8754C61E2C09E1000D48BA /* Cloud.png */,
 				4E8754C31E2BF631000D48BA /* Crate.png */,
 				4E02CBB31E294B21009F0BB3 /* Dorito.png */,
 				4E801A8E1E0EB09F00561A44 /* spritesheet.png */,
-				4E90942A1E0AFEF000B2686F /* background.png */,
 				4E90942B1E0AFEF000B2686F /* ground.png */,
 				4E90942C1E0AFEF000B2686F /* middle_platform.png */,
-				4E8D09121E255AA7005D085A /* Inconsolata.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -116,6 +125,8 @@
 				4EF1BFE91DFF201F005DF164 /* ResourcePath.mm */,
 				4EF1BFEB1DFF201F005DF164 /* ResourcePath.hpp */,
 				4EF1BFEC1DFF201F005DF164 /* main.cpp */,
+				4E04765F1E35101700895C27 /* helperFunctions.cpp */,
+				4E0476601E35101700895C27 /* helperFunctions.hpp */,
 				4EF1C0271DFF222A005DF164 /* client.cpp */,
 				4EF1C0281DFF222A005DF164 /* client.hpp */,
 				4E801A8B1E0E942200561A44 /* Player.cpp */,
@@ -203,17 +214,19 @@
 			files = (
 				4E8754C71E2C09E1000D48BA /* Cloud Fedora.png in Resources */,
 				4ECE132A1E33FF4500B09A6A /* sidewall2.png in Resources */,
-				4E0B348C1E2EAF3400B82AE4 /* bush.png in Resources */,
+				4E0476591E34E47400895C27 /* Metal Box Dorito.png in Resources */,
 				4E74B5621E313ACD005AB2EC /* Tree.png in Resources */,
 				4E90942F1E0AFEF000B2686F /* ground.png in Resources */,
-				4E8D09131E255AA7005D085A /* Inconsolata.ttf in Resources */,
+				4E04765C1E34E9D800895C27 /* LCD_Solid.ttf in Resources */,
 				4E8754C41E2BF631000D48BA /* Crate.png in Resources */,
 				4EEC28401E33E40300F011C2 /* Big Tree 2.png in Resources */,
-				4E90942E1E0AFEF000B2686F /* background.png in Resources */,
 				4E9094301E0AFEF000B2686F /* middle_platform.png in Resources */,
 				4E8754C81E2C09E1000D48BA /* Cloud.png in Resources */,
+				4E04765A1E34E47400895C27 /* Metal Box.png in Resources */,
 				4E801A8F1E0EB09F00561A44 /* spritesheet.png in Resources */,
 				4E02CBB41E294B21009F0BB3 /* Dorito.png in Resources */,
+				4EF6976C1E34B779003D9483 /* Bush 2.png in Resources */,
+				4E04765E1E34F61F00895C27 /* Tree 2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +259,7 @@
 				4EF1C0291DFF222A005DF164 /* client.cpp in Sources */,
 				4E02CBB21E2949FE009F0BB3 /* dorito.cpp in Sources */,
 				4E7A20FA1E130FB100F3C0D8 /* response.cpp in Sources */,
+				4E0476611E35101700895C27 /* helperFunctions.cpp in Sources */,
 				4E9094281E0AFD7700B2686F /* window.cpp in Sources */,
 				4E801A8D1E0E942200561A44 /* Player.cpp in Sources */,
 			);
