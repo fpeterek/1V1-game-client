@@ -93,7 +93,7 @@ sf::IpAddress get_ip() {
     sf::Text text2(text);
     text2.setPosition(0, 55);
     
-    if (not font.loadFromFile(resourcePath() + "LCD_Solid.ttf")) {
+    if (not font.loadFromFile("Resources/LCD_Solid.ttf")) {
         throw std::runtime_error("Error loading font LCD_Solid.ttf. ");
     }
     
@@ -166,7 +166,7 @@ void display_error_message(const std::string & message) {
     sf::Text text3(text);
     text3.setPosition(0, 95);
     
-    if (not font.loadFromFile(resourcePath() + "LCD_Solid.ttf")) {
+    if (not font.loadFromFile("Resources/LCD_Solid.ttf")) {
         throw std::runtime_error("Error loading font LCD_Solid.ttf. ");
     }
     

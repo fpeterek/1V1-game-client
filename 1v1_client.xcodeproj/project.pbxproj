@@ -26,7 +26,6 @@
 		4E9094301E0AFEF000B2686F /* middle_platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E90942C1E0AFEF000B2686F /* middle_platform.png */; };
 		4ECE132A1E33FF4500B09A6A /* sidewall2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ECE13291E33FF4500B09A6A /* sidewall2.png */; };
 		4EEC28401E33E40300F011C2 /* Big Tree 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC283E1E33E40300F011C2 /* Big Tree 2.png */; };
-		4EF1BFEA1DFF201F005DF164 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4EF1BFE91DFF201F005DF164 /* ResourcePath.mm */; };
 		4EF1BFED1DFF201F005DF164 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EF1BFEC1DFF201F005DF164 /* main.cpp */; };
 		4EF1C0291DFF222A005DF164 /* client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EF1C0271DFF222A005DF164 /* client.cpp */; };
 		4EF3EEEC1E12CAD600DAE476 /* request.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3EEEA1E12CAD600DAE476 /* request.cpp */; };
@@ -60,8 +59,6 @@
 		4EEC283E1E33E40300F011C2 /* Big Tree 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Big Tree 2.png"; path = "../../../Grafika/Neckbeard/Big Tree 2.png"; sourceTree = "<group>"; };
 		4EF1BFE41DFF201F005DF164 /* 1v1_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1v1_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF1BFE81DFF201F005DF164 /* 1v1_client-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "1v1_client-Info.plist"; sourceTree = "<group>"; };
-		4EF1BFE91DFF201F005DF164 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
-		4EF1BFEB1DFF201F005DF164 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		4EF1BFEC1DFF201F005DF164 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4EF1C0271DFF222A005DF164 /* client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = client.cpp; sourceTree = "<group>"; };
 		4EF1C0281DFF222A005DF164 /* client.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = client.hpp; sourceTree = "<group>"; };
@@ -122,8 +119,6 @@
 		4EF1BFE61DFF201F005DF164 /* 1v1_client */ = {
 			isa = PBXGroup;
 			children = (
-				4EF1BFE91DFF201F005DF164 /* ResourcePath.mm */,
-				4EF1BFEB1DFF201F005DF164 /* ResourcePath.hpp */,
 				4EF1BFEC1DFF201F005DF164 /* main.cpp */,
 				4E04765F1E35101700895C27 /* helperFunctions.cpp */,
 				4E0476601E35101700895C27 /* helperFunctions.hpp */,
@@ -255,7 +250,6 @@
 			files = (
 				4EF1BFED1DFF201F005DF164 /* main.cpp in Sources */,
 				4EF3EEEC1E12CAD600DAE476 /* request.cpp in Sources */,
-				4EF1BFEA1DFF201F005DF164 /* ResourcePath.mm in Sources */,
 				4EF1C0291DFF222A005DF164 /* client.cpp in Sources */,
 				4E02CBB21E2949FE009F0BB3 /* dorito.cpp in Sources */,
 				4E7A20FA1E130FB100F3C0D8 /* response.cpp in Sources */,

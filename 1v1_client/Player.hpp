@@ -14,8 +14,6 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "ResourcePath.hpp"
-
 #include "response.hpp"
 
 

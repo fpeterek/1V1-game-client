@@ -17,7 +17,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
 
-#include "ResourcePath.hpp"
 
 sf::IpAddress get_ip();
 void display_error_message(const std::string & message);

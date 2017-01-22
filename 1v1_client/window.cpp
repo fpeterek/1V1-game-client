@@ -33,7 +33,7 @@ void Window::initText() {
         text.setFont(_font);
         /* Set text color to the opposite color of the background color */
         /* Background color is 0x20, 0xBD, 0xFC                         */
-        text.setColor(sf::Color(~(char)0x20, ~(char)0xBD, ~(char)0xFC));
+        text.setFillColor(sf::Color(~(char)0x20, ~(char)0xBD, ~(char)0xFC));
         text.setCharacterSize(18 * _scale);
         text.setString("0");
         
@@ -61,7 +61,7 @@ void Window::initialize() {
     
     _text = std::make_tuple(sf::Text(), sf::Text());
     
-    if (not _font.loadFromFile(resourcePath() + "LCD_Solid.ttf")) {
+    if (not _font.loadFromFile("Resources/LCD_Solid.ttf")) {
         throw std::runtime_error("Error loading font LCD_Solid.ttf. ");
     }
     
@@ -261,7 +261,7 @@ void Window::loadTexture( std::string && textureName, std::string && dictionaryN
     
     sf::Texture temp;
     
-    if (not temp.loadFromFile( resourcePath() + textureName )) {
+    if (not temp.loadFromFile( "Resources/" + textureName )) {
         
         std::string error_message = "Error loading texture ";
         error_message += textureName;

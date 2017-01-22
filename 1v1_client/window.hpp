@@ -22,8 +22,6 @@
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 
-#include "ResourcePath.hpp"
-
 #include "Player.hpp"
 
 class Cloud : public sf::Sprite {
