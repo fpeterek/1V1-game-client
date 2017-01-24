@@ -17,7 +17,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
-#include "Client.hpp"
+#include "client.hpp"
 #include "helperFunctions.hpp"
 
 #define PORT_CLIENT 60002
